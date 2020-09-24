@@ -21,10 +21,10 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.IsTemplate).HasColumnName("IsTemplate");
 
             // Relationships
-            builder.HasOptional(t => t.ParentCard)
+            builder.HasOne(t => t.ParentCard)
                 .WithMany()
                 .HasForeignKey(d => d.ParentCardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.DocumentType)
                 .WithMany(t => t.Cards)

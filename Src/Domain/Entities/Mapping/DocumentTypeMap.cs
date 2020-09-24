@@ -21,15 +21,15 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.IsReplaceRegNumber).HasColumnName("IsReplaceRegNumber");
 
 
-            builder.HasOptional(t => t.ParentDocumentType)
+            builder.HasOne(t => t.ParentDocumentType)
               .WithMany()
               .HasForeignKey(t => t.ParentDocumentTypeId);
 
-            builder.HasOptional(t => t.Department)
+            builder.HasOne(t => t.Department)
                 .WithMany(t => t.DocumentTypes)
                 .HasForeignKey(t => t.DepartmentId);
 
-            builder.HasOptional(t => t.StampPosition)
+            builder.HasOne(t => t.StampPosition)
                 .WithMany(t => t.DocumentTypes)
                 .HasForeignKey(t => t.StampPositionId);
 

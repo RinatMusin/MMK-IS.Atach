@@ -27,17 +27,17 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.TaskAction)
               .WithMany(t => t.TaskHistories)
               .HasForeignKey(t => t.TaskActionId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.CreatedUser)
+            builder.HasOne(t => t.CreatedUser)
             .WithMany(t => t.TaskHistoryCreators)
             .HasForeignKey(t => t.CreatedUserId)
-            .WillCascadeOnDelete(false);
+            .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.CanceledUser)
+            builder.HasOne(t => t.CanceledUser)
             .WithMany(t => t.TaskHistories)
             .HasForeignKey(t => t.CanceledUserId)
-            .WillCascadeOnDelete(false);
+            .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

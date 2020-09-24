@@ -26,7 +26,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.TaskStatusType)
                 .WithMany(t => t.TaskStatuses)
                 .HasForeignKey(d => d.StatusTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

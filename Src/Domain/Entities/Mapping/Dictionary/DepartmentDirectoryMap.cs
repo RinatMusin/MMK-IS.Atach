@@ -18,7 +18,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.DepartmentManager)
                 .WithMany(t => t.DepartmentManagers)
                 .HasForeignKey(t => t.DepartmentManagerId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

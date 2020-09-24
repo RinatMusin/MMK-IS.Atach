@@ -25,12 +25,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.FieldTargetType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.TargetTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.FieldType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.FieldTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
 

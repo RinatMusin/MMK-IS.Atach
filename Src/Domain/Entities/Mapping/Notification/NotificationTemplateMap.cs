@@ -25,7 +25,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Notification
             builder.HasRequired(t => t.NotifiticationType)
                 .WithMany(t => t.NotificationTemplates)
                 .HasForeignKey(t => t.NofiticationTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

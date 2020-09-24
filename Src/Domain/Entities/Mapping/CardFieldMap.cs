@@ -35,12 +35,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.Field)
                 .WithMany(t => t.CardFields)
                 .HasForeignKey(d => d.FieldId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.FieldGroup)
+            builder.HasOne(t => t.FieldGroup)
                 .WithMany(t => t.CardFields)
                 .HasForeignKey(t => t.FieldGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

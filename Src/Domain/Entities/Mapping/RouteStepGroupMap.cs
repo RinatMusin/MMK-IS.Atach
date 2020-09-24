@@ -29,37 +29,37 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.Card)
                 .WithMany(t => t.RouteStepGroups)
                 .HasForeignKey(t => t.CardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.AfterSendCard)
                 .WithMany(t => t.AfterRouteStepGroups)
                 .HasForeignKey(t => t.AfterSendCardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.RouteStepType)
                 .WithMany(t => t.RouteStepGroups)
                 .HasForeignKey(t => t.RouteStepTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.RouteAction)
+            builder.HasOne(t => t.RouteAction)
                .WithMany(t => t.OutRouteStepGroups)
                .HasForeignKey(t => t.RouteActionId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnInMethodGroup)
+            builder.HasOne(t => t.OnInMethodGroup)
                 .WithMany(t => t.RouteStepGroupsIn)
                 .HasForeignKey(t => t.OnInMethodGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnOutMethodGroup)
+            builder.HasOne(t => t.OnOutMethodGroup)
                 .WithMany(t => t.RouteStepGroupsOut)
                 .HasForeignKey(t => t.OnOutMethodGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.DocumentStatus)
+            builder.HasOne(t => t.DocumentStatus)
                  .WithMany(t => t.RouteStepGroups)
                  .HasForeignKey(t => t.DocumentStatusId)
-                 .WillCascadeOnDelete(false);
+                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

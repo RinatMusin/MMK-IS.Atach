@@ -22,7 +22,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.CardField)
                 .WithMany(t => t.DocumentFieldValues)
                 .HasForeignKey(d => d.CardFieldId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.Document)
                 .WithMany(t => t.DocumentFieldValues)

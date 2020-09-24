@@ -21,13 +21,13 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.SubSubject)
                 .WithMany(t => t.SubSubjectParticipants)
                 .HasForeignKey(t => t.SubSubjectId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             builder.HasRequired(t => t.GroupParticipant)
                 .WithMany(t => t.SubSubjectParticipants)
                 .HasForeignKey(t => t.GroupParticipantId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
 

@@ -18,12 +18,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.Workplace)
                 .WithMany(t => t.WorkplaceUsers)
                 .HasForeignKey(t => t.WorkplaceId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.User)
                 .WithMany(t => t.WorkplacesUsers)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 

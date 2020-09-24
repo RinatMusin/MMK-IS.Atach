@@ -20,12 +20,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.User)
                 .WithMany(t => t.DictionaryGroupCFOUsers)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.GroupCFO)
                 .WithMany(t => t.DictionaryGroupCFOUsers)
                 .HasForeignKey(t => t.GroupCFOId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

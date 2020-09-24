@@ -21,12 +21,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.UserOrganizationType)
               .WithMany(t => t.UserOrganizations)
               .HasForeignKey(t => t.OrganizationTypeId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.ParentUserOrganization)
+            builder.HasOne(t => t.ParentUserOrganization)
                 .WithMany()
                 .HasForeignKey(d => d.ParentOrganizationId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
         }

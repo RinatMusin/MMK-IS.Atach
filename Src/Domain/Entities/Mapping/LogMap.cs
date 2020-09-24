@@ -30,10 +30,10 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.CurrentUserLogin).HasColumnName("user_login");
             #endregion
 
-            builder.HasOptional(t => t.User)
+            builder.HasOne(t => t.User)
                .WithMany(t => t.Logs)
                .HasForeignKey(t => t.UserId)
-               .WillCascadeOnDelete(false);
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.ProcessingStatus)
                 .WithMany(t => t.Attachments)
                 .HasForeignKey(t=>t.ProcessingStatusId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

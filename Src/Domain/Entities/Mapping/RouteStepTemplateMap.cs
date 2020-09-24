@@ -30,35 +30,35 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
                 .HasForeignKey(t => t.RouteTemplateId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.RouteAction)
+            builder.HasOne(t => t.RouteAction)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteActionId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.User)
+            builder.HasOne(t => t.User)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.RouteStepType)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteStepTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.RouteStepGroup)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteStepGroupId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.Group)
+            builder.HasOne(t => t.Group)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.GroupId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.TargetType)
+            builder.HasOne(t => t.TargetType)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.TargetTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 

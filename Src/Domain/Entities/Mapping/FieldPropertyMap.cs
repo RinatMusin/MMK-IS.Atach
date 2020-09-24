@@ -18,7 +18,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.Field)
                 .WithMany(t => t.FieldProperties)
                 .HasForeignKey(t => t.FieldId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

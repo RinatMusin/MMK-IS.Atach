@@ -27,12 +27,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
 
 
             //// Relationships
-            builder.HasOptional(m => m.ApplicationUser)
+            builder.HasOne(m => m.ApplicationUser)
                 .WithOptionalPrincipal(e => e.ClientProfile)
                 .Map(m => m.MapKey("ClientProfile_ClientProfileId"))
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(ds => ds.DssAuthenticationData)
+            builder.HasOne(ds => ds.DssAuthenticationData)
                 .WithRequired(cl => cl.ClientProfile)
                 .WillCascadeOnDelete(true);
         }

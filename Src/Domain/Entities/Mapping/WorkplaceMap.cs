@@ -18,9 +18,9 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.UserOrganization)
                 .WithMany(t => t.Workplaces)
                 .HasForeignKey(t => t.OrganizationId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.ParentWorkplace)
+            builder.HasOne(t => t.ParentWorkplace)
                 .WithMany()
                 .HasForeignKey(t => t.ParentWorkplaceId)
                 .WillCascadeOnDelete(true);

@@ -40,59 +40,59 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.RouteStepGroup)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteStepGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.Route)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.User)
+            builder.HasOne(t => t.User)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.RouteStepType)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.StepTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.RouteAction)
+            builder.HasOne(t => t.RouteAction)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteActionId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.BeforeCard)
+            builder.HasOne(t => t.BeforeCard)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.BeforeCardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.AfterSendCard)
+            builder.HasOne(t => t.AfterSendCard)
                 .WithMany(t => t.AfterSendRouteSteps)
                 .HasForeignKey(t => t.AfterSendCardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.TaskEntity)
+            builder.HasOne(t => t.TaskEntity)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.TaskId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.Group)
+            builder.HasOne(t => t.Group)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.GroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.TargetType)
+            builder.HasOne(t => t.TargetType)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.TargetTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.File)
+            builder.HasOne(t => t.File)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.NoteFileId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.RouteStepTemplate)
+            builder.HasOne(t => t.RouteStepTemplate)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteStepTemplateId);
         }

@@ -23,20 +23,20 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdate).HasColumnName("LastUpdate");
 
-            builder.HasOptional(t => t.ParentFile)
+            builder.HasOne(t => t.ParentFile)
                 .WithMany()
                 .HasForeignKey(t => t.ParentFileId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.FileType)
                 .WithMany(t => t.Files)
                 .HasForeignKey(t => t.FileTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.UploadedUser)
+            builder.HasOne(t => t.UploadedUser)
                 .WithMany(t=>t.Files)
                 .HasForeignKey(t => t.UploadedUserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

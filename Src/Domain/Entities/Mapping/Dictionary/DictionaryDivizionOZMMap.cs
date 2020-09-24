@@ -19,7 +19,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.Economist)
                 .WithMany(t => t.Economists)
                 .HasForeignKey(t => t.EconomistId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

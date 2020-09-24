@@ -28,22 +28,22 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.DocumentType)
              .WithMany(t => t.Documents)
              .HasForeignKey(t => t.DocumentTypeId)
-             .WillCascadeOnDelete(false);
+             .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.CreationUser)
                 .WithMany(t => t.Documents)
                 .HasForeignKey(t => t.CreatedUserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.DocumentStatus)
                 .WithMany(t => t.Documents)
                 .HasForeignKey(t => t.DocumentStatusId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.ParentDocument)
+            builder.HasOne(t => t.ParentDocument)
               .WithMany()
               .HasForeignKey(d => d.ParentDocumentId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
 
         }
 

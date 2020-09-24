@@ -20,12 +20,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.GroupParticipant)
                 .WithMany(t => t.UserParticipants)
                 .HasForeignKey(t => t.GroupParticipantId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.User)
                 .WithMany(t => t.UserParticipants)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 

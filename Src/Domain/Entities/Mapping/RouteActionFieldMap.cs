@@ -21,7 +21,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.RouteActionFieldType)
                 .WithMany(t => t.RouteActionFields)
                 .HasForeignKey(t => t.RouteActionFieldTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.RouteAction)
                 .WithMany(t => t.ActionFields)

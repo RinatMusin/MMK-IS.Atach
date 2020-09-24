@@ -41,10 +41,10 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.Property(t => t.SAPIdentification).HasColumnName("SAPIdentification");
             builder.Property(t => t.DateOfLastModification).HasColumnName("DateOfLastModification");
 
-            builder.HasOptional(t => t.CounterPartyType)
+            builder.HasOne(t => t.CounterPartyType)
                 .WithMany(t => t.DictionaryCounterParties)
                 .HasForeignKey(t => t.CounterPartyTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

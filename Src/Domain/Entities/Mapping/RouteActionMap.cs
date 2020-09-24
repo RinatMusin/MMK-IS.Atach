@@ -16,7 +16,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.RouteActionType)
                 .WithMany(t => t.RouteActions)
                 .HasForeignKey(t => t.RouteActionTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

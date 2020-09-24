@@ -34,7 +34,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
                 .HasForeignKey(t => t.DocumentId)
                 .WillCascadeOnDelete(true);
 
-            builder.HasOptional(t => t.ParentTask)
+            builder.HasOne(t => t.ParentTask)
                 .WithMany()
                 .HasForeignKey(t => t.ParentTaskId)
                 .WillCascadeOnDelete(true);
@@ -42,37 +42,37 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.TaskStatus)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskStatusId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.TaskType)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.FromUser)
                .WithMany(t => t.TasksFromUser)
                .HasForeignKey(t => t.FromUserId)
-               .WillCascadeOnDelete(false);
+               .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.ToUser)
                .WithMany(t => t.TasksToUser)
                .HasForeignKey(t => t.ToUserId)
-               .WillCascadeOnDelete(false);
+               .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.ReplacementUser)
+            builder.HasOne(t => t.ReplacementUser)
                 .WithMany(t => t.TaskReplacementUsers)
                 .HasForeignKey(t => t.ReplacementUserId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.Workplace)
                .WithMany(t => t.TaskEntities)
                .HasForeignKey(t => t.WorkplaceId)
-               .WillCascadeOnDelete(false);
+               .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.Card)
+            builder.HasOne(t => t.Card)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.CardId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

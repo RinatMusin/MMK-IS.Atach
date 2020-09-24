@@ -22,36 +22,36 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.OnRejectMethodGroupId).HasColumnName("OnRejectMethodGroupId");
 
 
-            builder.HasOptional(t => t.OnCreateTaskStatus)
+            builder.HasOne(t => t.OnCreateTaskStatus)
                .WithMany(t => t.OnCreateRouteStepTypes)
                .HasForeignKey(t => t.OnCreateTaskStatusId)
-               .WillCascadeOnDelete(false);
+               .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnAcceptTaskStatus)
+            builder.HasOne(t => t.OnAcceptTaskStatus)
                 .WithMany(t => t.OnAcceptRouteStepTypes)
                 .HasForeignKey(t => t.OnAcceptTaskStatusId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnRejectTaskStatus)
+            builder.HasOne(t => t.OnRejectTaskStatus)
                 .WithMany(t => t.OnRejectRouteStepTypes)
                 .HasForeignKey(t => t.OnRejectTaskStatusId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
-            builder.HasOptional(t => t.OnInMethodGroup)
+            builder.HasOne(t => t.OnInMethodGroup)
                 .WithMany(t => t.RouteStepTypesIn)
                 .HasForeignKey(t => t.OnInMethodGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnOutMethodGroup)
+            builder.HasOne(t => t.OnOutMethodGroup)
                 .WithMany(t => t.RouteStepTypesOut)
                 .HasForeignKey(t => t.OnOutMethodGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.OnRejectMethodGroup)
+            builder.HasOne(t => t.OnRejectMethodGroup)
                 .WithMany(t => t.RouteStepTypesReject)
                 .HasForeignKey(t => t.OnRejectMethodGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

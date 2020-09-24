@@ -22,10 +22,10 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.LastUpdate).HasColumnName("LastUpdate");
 
             // Relationships
-            builder.HasOptional(t => t.ParentFieldGroup)
+            builder.HasOne(t => t.ParentFieldGroup)
                 .WithMany()
                 .HasForeignKey(d => d.ParentFieldGroupId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

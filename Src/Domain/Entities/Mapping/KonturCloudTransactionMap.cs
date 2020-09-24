@@ -22,12 +22,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.Document)
                 .WithMany()
                 .HasForeignKey(t => t.DocumentId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.Task)
               .WithMany()
               .HasForeignKey(d => d.TaskId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

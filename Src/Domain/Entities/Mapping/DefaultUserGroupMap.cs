@@ -15,6 +15,11 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
+           
+            builder.HasRequired(t => t.Element)
+                .WithMany(t => t.DefaultUserSettings)
+                .HasForeignKey(d => d.ElementId)
+                .WillCascadeOnDelete(true);
             builder.HasRequired(t => t.Element)
                 .WithMany(t => t.DefaultUserSettings)
                 .HasForeignKey(d => d.ElementId)

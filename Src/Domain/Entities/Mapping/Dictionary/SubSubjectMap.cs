@@ -21,17 +21,17 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.Subject)
                 .WithMany(t => t.SubSubjects)
                 .HasForeignKey(t => t.SubjectId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.TypeOfContract)
+            builder.HasOne(t => t.TypeOfContract)
               .WithMany(t => t.SubSubjects)
               .HasForeignKey(t => t.TypeOfContractId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.TypesOfDocumentContract)
               .WithMany(t => t.SubSubjects)
               .HasForeignKey(t => t.TypeOfDocumentContractId)
-              .WillCascadeOnDelete(false);
+              .OnDelete(DeleteBehavior.Cascade);
         }
 
 

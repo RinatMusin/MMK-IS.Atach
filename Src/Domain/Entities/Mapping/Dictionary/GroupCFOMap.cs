@@ -22,17 +22,17 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.Owner)
                 .WithMany(t => t.GroupCFOs)
                 .HasForeignKey(t => t.OwnerId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.RiskManager)
+            builder.HasOne(t => t.RiskManager)
                 .WithMany(t => t.GroupCFORiskManagers)
                 .HasForeignKey(t => t.RiskManagerId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOptional(t => t.ZGD)
+            builder.HasOne(t => t.ZGD)
                 .WithMany(t => t.GroupCFOZGDs)
                 .HasForeignKey(t => t.ZGDId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

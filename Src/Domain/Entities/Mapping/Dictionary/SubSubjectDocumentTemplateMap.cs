@@ -19,12 +19,12 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping.Dictionary
             builder.HasRequired(t => t.SubSubject)
                 .WithMany(t => t.SubSubjectDocumentTemplates)
                 .HasForeignKey(t => t.SubSubjectId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasRequired(t => t.DocumentTemplate)
                 .WithMany(t => t.DictionarySubSubjectDocumentTemplates)
                 .HasForeignKey(t => t.DocumentTemplateId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

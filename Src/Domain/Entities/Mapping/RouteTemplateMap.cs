@@ -22,7 +22,7 @@ namespace MMK_IS.Atach.Domain.Entities.Mapping
             builder.HasRequired(t => t.DocumentType)
                 .WithMany(t => t.RouteTemplates)
                 .HasForeignKey(d => d.DocumentTypeId)
-                .WillCascadeOnDelete(false);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
