@@ -31,11 +31,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasOne(m => m.ApplicationUser)
                 .WithOptionalPrincipal(e => e.ClientProfile)
                 .Map(m => m.MapKey("ClientProfile_ClientProfileId"))
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(ds => ds.DssAuthenticationData)
                 .WithRequired(cl => cl.ClientProfile)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

@@ -8,7 +8,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<RouteStepTemplateProperty> builder)
         {
-         builder.HasKey(t => t.RouteStepTemplatePropertyId);
+            builder.HasKey(t => t.RouteStepTemplatePropertyId);
 
             builder.ToTable("RouteStepTemplateProperty");
 
@@ -17,15 +17,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.RouteStepTemplateId).HasColumnName("RouteStepTemplateId");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.DictionaryProperty)
+            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty)
                 .WithMany(t => t.RouteStepTemplateProperties)
                 .HasForeignKey(t => t.PropertyId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStepTemplate)
+            builder.Property(t => t.RouteStepTemplate).IsRequired();
+            builder.HasOne(t => t.RouteStepTemplate)
                 .WithMany(t => t.RouteStepTemplateProperties)
                 .HasForeignKey(t => t.RouteStepTemplateId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

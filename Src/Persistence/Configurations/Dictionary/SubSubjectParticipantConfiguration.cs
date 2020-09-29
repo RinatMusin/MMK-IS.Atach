@@ -18,13 +18,15 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.GroupParticipantName).HasColumnName("GroupParticipantName");
 
 
-            builder.HasRequired(t => t.SubSubject)
+            builder.Property(t => t.SubSubject).IsRequired();
+            builder.HasOne(t => t.SubSubject)
                 .WithMany(t => t.SubSubjectParticipants)
                 .HasForeignKey(t => t.SubSubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
 
 
-            builder.HasRequired(t => t.GroupParticipant)
+            builder.Property(t => t.GroupParticipant).IsRequired();
+            builder.HasOne(t => t.GroupParticipant)
                 .WithMany(t => t.SubSubjectParticipants)
                 .HasForeignKey(t => t.GroupParticipantId)
                 .OnDelete(DeleteBehavior.Cascade);

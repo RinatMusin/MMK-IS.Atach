@@ -15,15 +15,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ComponentId).HasColumnName("ComponentId");
             builder.Property(t => t.ElementId).HasColumnName("ElementId");
 
-            builder.HasRequired(t => t.Component)
+            builder.Property(t => t.Component).IsRequired();
+            builder.HasOne(t => t.Component)
                 .WithMany(t => t.ComponentElements)
                 .HasForeignKey(t => t.ComponentId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Element)
+            builder.Property(t => t.Element).IsRequired();
+            builder.HasOne(t => t.Element)
                 .WithMany(t => t.ComponentElements)
                 .HasForeignKey(t => t.ElementId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

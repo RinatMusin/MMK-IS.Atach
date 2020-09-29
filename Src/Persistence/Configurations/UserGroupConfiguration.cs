@@ -16,15 +16,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.GroupId).HasColumnName("GroupId");
 
-            builder.HasRequired(t => t.User)
+            builder.Property(t => t.User).IsRequired();
+            builder.HasOne(t => t.User)
                 .WithMany(t => t.UserGroups)
                 .HasForeignKey(t => t.UserId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Group)
+            builder.Property(t => t.Group).IsRequired();
+            builder.HasOne(t => t.Group)
                 .WithMany(t => t.UserGroups)
                 .HasForeignKey(t => t.GroupId)
-                .WillCascadeOnDelete(true);
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

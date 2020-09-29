@@ -15,7 +15,8 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.DepartmentDirectory).HasColumnName("DepartmentDirectory");
             builder.Property(t => t.DepartmentManagerId).HasColumnName("DepartmentManagerId");
 
-            builder.HasRequired(t => t.DepartmentManager)
+            builder.Property(t => t.DepartmentManager).IsRequired();
+            builder.HasOne(t => t.DepartmentManager)
                 .WithMany(t => t.DepartmentManagers)
                 .HasForeignKey(t => t.DepartmentManagerId)
                 .OnDelete(DeleteBehavior.Cascade);

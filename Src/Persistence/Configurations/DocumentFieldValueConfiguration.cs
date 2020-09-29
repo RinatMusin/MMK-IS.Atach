@@ -20,15 +20,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("text");
             builder.Property(t => t.SearchableValue).HasColumnName("SearchableValue").HasColumnType("text");
 
-            builder.HasRequired(t => t.CardField)
+            builder.Property(t => t.CardField).IsRequired();
+            builder.HasOne(t => t.CardField)
                 .WithMany(t => t.DocumentFieldValues)
                 .HasForeignKey(d => d.CardFieldId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Document)
+            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document)
                 .WithMany(t => t.DocumentFieldValues)
                 .HasForeignKey(d => d.DocumentId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

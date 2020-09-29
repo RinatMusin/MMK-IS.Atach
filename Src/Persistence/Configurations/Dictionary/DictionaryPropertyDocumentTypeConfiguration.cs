@@ -14,15 +14,17 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.PropertyId).HasColumnName("PropertyId");
             builder.Property(t => t.DocumentTypeId).HasColumnName("DocumentTypeId");
 
-            builder.HasRequired(t => t.DictionaryProperty)
+            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty)
                 .WithMany(t => t.DictionaryPropertyDocumentTypes)
                 .HasForeignKey(t => t.PropertyId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.DocumentType)
+            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType)
                 .WithMany(t => t.DictionaryPropertyDocumentTypes)
                 .HasForeignKey(t => t.DocumentTypeId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

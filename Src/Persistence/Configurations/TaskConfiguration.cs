@@ -30,32 +30,37 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.LastUpdate).HasColumnName("LastUpdate");
             builder.Property(t => t.DateOfExecution).HasColumnName("DateOfExecution");
 
-            builder.HasRequired(t => t.Document)
+            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.DocumentId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.ParentTask)
                 .WithMany()
                 .HasForeignKey(t => t.ParentTaskId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.TaskStatus)
+            builder.Property(t => t.TaskStatus).IsRequired();
+            builder.HasOne(t => t.TaskStatus)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskStatusId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.TaskType)
+            builder.Property(t => t.TaskType).IsRequired();
+            builder.HasOne(t => t.TaskType)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.FromUser)
+            builder.Property(t => t.FromUser).IsRequired();
+            builder.HasOne(t => t.FromUser)
                .WithMany(t => t.TasksFromUser)
                .HasForeignKey(t => t.FromUserId)
                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.ToUser)
+            builder.Property(t => t.ToUser).IsRequired();
+            builder.HasOne(t => t.ToUser)
                .WithMany(t => t.TasksToUser)
                .HasForeignKey(t => t.ToUserId)
                .OnDelete(DeleteBehavior.Cascade);
@@ -64,8 +69,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .WithMany(t => t.TaskReplacementUsers)
                 .HasForeignKey(t => t.ReplacementUserId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasRequired(t => t.Workplace)
+            
+            builder.Property(t => t.Workplace).IsRequired();
+            builder.HasOne(t => t.Workplace)
                .WithMany(t => t.TaskEntities)
                .HasForeignKey(t => t.WorkplaceId)
                .OnDelete(DeleteBehavior.Cascade);
@@ -74,7 +80,6 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.CardId)
                 .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

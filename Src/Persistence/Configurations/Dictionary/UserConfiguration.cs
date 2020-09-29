@@ -17,10 +17,11 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.Email).HasColumnName("Email");
             builder.Property(t => t.Position).HasColumnName("Position");
 
-            builder.HasRequired(t => t.Organization)
+            builder.Property(t => t.Organization).IsRequired();
+            builder.HasOne(t => t.Organization)
                 .WithMany(t => t.Users)
                 .HasForeignKey(t => t.OrganizationId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

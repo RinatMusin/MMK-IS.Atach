@@ -16,10 +16,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
-            builder.HasRequired(t => t.Element)
+            builder.Property(t => t.Element).IsRequired();
+            builder.HasOne(t => t.Element)
                 .WithMany(t => t.ElementDefaultValues)
                 .HasForeignKey(d => d.ElementId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

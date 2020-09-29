@@ -24,7 +24,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
 
             // Relationships
-            builder.HasRequired(t => t.TaskStatusType)
+            builder.Property(t => t.TaskStatusType).IsRequired();
+            builder.HasOne(t => t.TaskStatusType)
                 .WithMany(t => t.TaskStatuses)
                 .HasForeignKey(d => d.StatusTypeId)
                 .OnDelete(DeleteBehavior.Cascade);

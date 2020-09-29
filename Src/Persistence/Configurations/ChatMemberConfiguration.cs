@@ -18,20 +18,22 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
 
-            builder.HasRequired(t => t.ChatMemberProfile)
-                .WithMany(t => t.ChatMembers)
-                .HasForeignKey(t => t.ChatMemberProfileId)
-                .WillCascadeOnDelete(true);
+            builder.Property(t => t.ChatMemberProfile).IsRequired();
+            builder.HasOne(t => t.ChatMemberProfile)
+               .WithMany(t => t.ChatMembers)
+               .HasForeignKey(t => t.ChatMemberProfileId)
+               .OnDelete(DeleteBehavior.Cascade);
 
             //this.HasRequired(t => t.DelegatingUserProfile)
             //    .WithMany(t => t.ChatMembers)
             //    .HasForeignKey(t => t.DelegatingUserProfileId)
-            //    .WillCascadeOnDelete(true);
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Chat)
+            builder.Property(t => t.Chat).IsRequired();
+            builder.HasOne(t => t.Chat)
                 .WithMany(t => t.ChatMembers)
                 .HasForeignKey(t => t.ChatId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

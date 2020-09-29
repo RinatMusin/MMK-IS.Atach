@@ -18,7 +18,8 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.TypeOfDocumentContractId).HasColumnName("TypeOfDocumentContractId");
             builder.Property(t => t.ReglamentF223).HasColumnName("ReglamentF223");
 
-            builder.HasRequired(t => t.Subject)
+            builder.Property(t => t.Subject).IsRequired();
+            builder.HasOne(t => t.Subject)
                 .WithMany(t => t.SubSubjects)
                 .HasForeignKey(t => t.SubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -28,7 +29,8 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
               .HasForeignKey(t => t.TypeOfContractId)
               .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.TypesOfDocumentContract)
+            builder.Property(t => t.TypesOfDocumentContract).IsRequired();
+            builder.HasOne(t => t.TypesOfDocumentContract)
               .WithMany(t => t.SubSubjects)
               .HasForeignKey(t => t.TypeOfDocumentContractId)
               .OnDelete(DeleteBehavior.Cascade);

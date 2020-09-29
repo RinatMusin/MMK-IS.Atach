@@ -17,12 +17,14 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.UserId).HasColumnName("UserId");
             builder.Property(t => t.UserName).HasColumnName("UserName");
 
-            builder.HasRequired(t => t.GroupParticipant)
+            builder.Property(t => t.GroupParticipant).IsRequired();
+            builder.HasOne(t => t.GroupParticipant)
                 .WithMany(t => t.UserParticipants)
                 .HasForeignKey(t => t.GroupParticipantId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.User)
+            builder.Property(t => t.User).IsRequired();
+            builder.HasOne(t => t.User)
                 .WithMany(t => t.UserParticipants)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);

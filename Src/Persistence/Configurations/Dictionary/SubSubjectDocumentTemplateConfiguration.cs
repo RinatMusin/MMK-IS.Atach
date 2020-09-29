@@ -16,12 +16,14 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.SubSubjectId).HasColumnName("SubSubjecId");
             builder.Property(t => t.DocumentTemplateId).HasColumnName("DocumentTemplateId");
 
-            builder.HasRequired(t => t.SubSubject)
+            builder.Property(t => t.SubSubject).IsRequired();
+            builder.HasOne(t => t.SubSubject)
                 .WithMany(t => t.SubSubjectDocumentTemplates)
                 .HasForeignKey(t => t.SubSubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.DocumentTemplate)
+            builder.Property(t => t.DocumentTemplate).IsRequired();
+            builder.HasOne(t => t.DocumentTemplate)
                 .WithMany(t => t.DictionarySubSubjectDocumentTemplates)
                 .HasForeignKey(t => t.DocumentTemplateId)
                 .OnDelete(DeleteBehavior.Cascade);

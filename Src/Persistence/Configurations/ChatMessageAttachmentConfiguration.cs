@@ -19,10 +19,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
 
-            builder.HasRequired(t => t.ChatMessage)
+            builder.Property(t => t.ChatMessage).IsRequired();
+            builder.HasOne(t => t.ChatMessage)
                 .WithMany(t => t.ChatMessageAttachments)
                 .HasForeignKey(t => t.ChatMessageId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

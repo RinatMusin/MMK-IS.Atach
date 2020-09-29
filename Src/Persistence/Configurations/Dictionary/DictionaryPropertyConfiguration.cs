@@ -16,10 +16,11 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.PropertyTypeId).HasColumnName("PropertyTypeId");
             builder.Property(t => t.Name).HasColumnName("Name");
 
-            builder.HasRequired(t => t.PropertyType)
+            builder.Property(t => t.PropertyType).IsRequired();
+            builder.HasOne(t => t.PropertyType)
                 .WithMany(t => t.Properties)
                 .HasForeignKey(t => t.PropertyTypeId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -18,19 +18,22 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.IsMainFile).HasColumnName("IsMainFile");
 
-            builder.HasRequired(t => t.Document)
+            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document)
                 .WithMany(t => t.DocumentAttachments)
                 .HasForeignKey(t => t.DocumentId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.File)
+            builder.Property(t => t.File).IsRequired();
+            builder.HasOne(t => t.File)
                 .WithMany(t => t.DocumentAttachments)
                 .HasForeignKey(t => t.FileId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.ProcessingStatus)
+            builder.Property(t => t.ProcessingStatus).IsRequired();
+            builder.HasOne(t => t.ProcessingStatus)
                 .WithMany(t => t.Attachments)
-                .HasForeignKey(t=>t.ProcessingStatusId)
+                .HasForeignKey(t => t.ProcessingStatusId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

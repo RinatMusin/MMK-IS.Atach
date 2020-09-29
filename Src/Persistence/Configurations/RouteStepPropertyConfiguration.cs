@@ -17,15 +17,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.RouteStepId).HasColumnName("RouteStepId");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.DictionaryProperty)
+            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty)
                 .WithMany(t => t.RouteStepProperties)
                 .HasForeignKey(t => t.PropertyId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStep)
+            builder.Property(t => t.RouteStep).IsRequired();
+            builder.HasOne(t => t.RouteStep)
                 .WithMany(t => t.RouteStepProperties)
                 .HasForeignKey(t => t.RouteStepId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

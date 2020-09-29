@@ -20,10 +20,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
 
             // Relationships
-            builder.HasRequired(t => t.DocumentType)
-                .WithMany(t => t.RouteTemplates)
-                .HasForeignKey(d => d.DocumentTypeId)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType)
+               .WithMany(t => t.RouteTemplates)
+               .HasForeignKey(d => d.DocumentTypeId)
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -15,7 +15,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CardFieldId).HasColumnName("CardFieldId");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.CardField)
+            builder.Property(t => t.CardField).IsRequired();
+            builder.HasOne(t => t.CardField)
                 .WithMany(t => t.CardFieldDefaultValues)
                 .HasForeignKey(t => t.CardFieldId);
 

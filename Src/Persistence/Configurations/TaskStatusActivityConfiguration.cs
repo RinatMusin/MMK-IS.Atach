@@ -15,13 +15,15 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ActivityId).HasColumnName("ActivityId");
             builder.Property(t => t.TaskStatusId).HasColumnName("TaskStatusId");
 
-            builder.HasRequired(t => t.Activity)
+            builder.Property(t => t.Activity).IsRequired();
+            builder.HasOne(t => t.Activity)
                 .WithMany(t => t.TaskStatusActivities)
                 .HasForeignKey(t => t.ActivityId);
 
-            builder.HasRequired(t => t.TaskStatus)
+            builder.Property(t => t.TaskStatus).IsRequired();
+            builder.HasOne(t => t.TaskStatus)
               .WithMany(t => t.TaskStatusActivities)
-              .HasForeignKey(t => t.TaskStatusId);
+              .HasForeignKey(t => t.TaskStatusId);            
         }
     }
 }

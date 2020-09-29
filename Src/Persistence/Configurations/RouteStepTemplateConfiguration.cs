@@ -25,11 +25,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.IsRequired).HasColumnName("IsRequired");
             builder.Property(t => t.IsVisible).HasColumnName("IsVisible");
 
-
-            builder.HasRequired(t => t.RouteTemplate)
+            builder.Property(t => t.RouteTemplate).IsRequired();
+            builder.HasOne(t => t.RouteTemplate)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteTemplateId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.RouteAction)
                 .WithMany(t => t.RouteStepTemplates)
@@ -41,20 +41,22 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStepType)
+            builder.Property(t => t.RouteStepType).IsRequired();
+            builder.HasOne(t => t.RouteStepType)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteStepTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStepGroup)
+            builder.Property(t => t.RouteStepGroup).IsRequired();
+            builder.HasOne(t => t.RouteStepGroup)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.RouteStepGroupId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.Group)
                 .WithMany(t => t.RouteStepTemplates)
                 .HasForeignKey(t => t.GroupId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.TargetType)
                 .WithMany(t => t.RouteStepTemplates)

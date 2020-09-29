@@ -16,10 +16,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Name).HasColumnName("Name");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.ClientProfile)
+            builder.Property(t => t.ClientProfile).IsRequired();
+            builder.HasOne(t => t.ClientProfile)
                 .WithMany(t => t.ClientProfileProperties)
                 .HasForeignKey(t => t.ClientProfilePropertyId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

@@ -27,17 +27,20 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
 
 
-            builder.HasRequired(t => t.Card)
+            builder.Property(t => t.Card).IsRequired();
+            builder.HasOne(t => t.Card)
                 .WithMany(t => t.RouteStepGroups)
                 .HasForeignKey(t => t.CardId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.AfterSendCard)
+            builder.Property(t => t.AfterSendCard).IsRequired();
+            builder.HasOne(t => t.AfterSendCard)
                 .WithMany(t => t.AfterRouteStepGroups)
                 .HasForeignKey(t => t.AfterSendCardId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStepType)
+            builder.Property(t => t.RouteStepType).IsRequired();
+            builder.HasOne(t => t.RouteStepType)
                 .WithMany(t => t.RouteStepGroups)
                 .HasForeignKey(t => t.RouteStepTypeId)
                 .OnDelete(DeleteBehavior.Cascade);

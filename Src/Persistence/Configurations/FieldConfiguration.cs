@@ -14,21 +14,23 @@ namespace MMK_IS.Atach.Persistence.Configurations
             // Table & Column Mappings
             builder.ToTable("Field");
 
-            builder.Property(t => t.FieldTypeId).HasColumnName("FieldTypeId");   
-            builder.Property(t => t.TargetTypeId).HasColumnName("TargetTypeId");   
+            builder.Property(t => t.FieldTypeId).HasColumnName("FieldTypeId");
+            builder.Property(t => t.TargetTypeId).HasColumnName("TargetTypeId");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); 
-            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasColumnType("varchar"); 
+            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasColumnType("varchar");
             builder.Property(t => t.DefaultValue).HasColumnName("DefaultValue").HasColumnType("varchar");
             builder.Property(t => t.DataUrl).HasColumnName("DataUrl").HasColumnType("varchar");
 
 
-            builder.HasRequired(t => t.FieldTargetType)
+            builder.Property(t => t.FieldTargetType).IsRequired();
+            builder.HasOne(t => t.FieldTargetType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.TargetTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.FieldType)
+            builder.Property(t => t.FieldType).IsRequired();
+            builder.HasOne(t => t.FieldType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.FieldTypeId)
                 .OnDelete(DeleteBehavior.Cascade);

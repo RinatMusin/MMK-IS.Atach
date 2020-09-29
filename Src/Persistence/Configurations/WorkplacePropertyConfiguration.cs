@@ -15,15 +15,12 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DictionaryPropertyId).HasColumnName("DictionaryPropertyId");
 
             builder.Property(t => t.WorkplaceId).HasColumnName("WorkplaceId");
-
-            builder.HasRequired(t => t.DictionaryProperty)
-                .WithMany(t => t.WorkplaceProperties)
-                .HasForeignKey(t => t.DictionaryPropertyId);
-
-
-            builder.HasRequired(t => t.Workplace)
-                .WithMany(t => t.WorkplaceProperties)
-                .HasForeignKey(t => t.WorkplaceId);
+                        
+            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty).WithMany(t => t.WorkplaceProperties).HasForeignKey(t => t.DictionaryPropertyId);
+            
+            builder.Property(t => t.Workplace).IsRequired();
+            builder.HasOne(t => t.Workplace).WithMany(t => t.WorkplaceProperties).HasForeignKey(t => t.WorkplaceId);
         }
     }
 }

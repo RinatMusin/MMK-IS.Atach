@@ -18,8 +18,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.OrganizationTypeId).HasColumnName("OrganizationTypeId");
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
 
-
-            builder.HasRequired(t => t.UserOrganizationType)
+            builder.Property(t => t.UserOrganizationType).IsRequired();
+            builder.HasOne(t => t.UserOrganizationType)
               .WithMany(t => t.UserOrganizations)
               .HasForeignKey(t => t.OrganizationTypeId)
               .OnDelete(DeleteBehavior.Cascade);
@@ -28,8 +28,6 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .WithMany()
                 .HasForeignKey(d => d.ParentOrganizationId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-
         }
     }
 }

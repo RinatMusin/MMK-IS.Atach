@@ -16,15 +16,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.RouteMethodId).HasColumnName("RouteMethodId");
 
 
-            builder.HasRequired(t => t.RouteActionField)
+            builder.Property(t => t.RouteActionField).IsRequired();
+            builder.HasOne(t => t.RouteActionField)
                 .WithMany(t => t.RouteActionFieldMethods)
                 .HasForeignKey(t => t.RouteActionFieldId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteMethod)
+            builder.Property(t => t.RouteMethod).IsRequired();
+            builder.HasOne(t => t.RouteMethod)
                 .WithMany(t => t.RouteActionFieldMethods)
                 .HasForeignKey(t => t.RouteMethodId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

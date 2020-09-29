@@ -14,7 +14,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
 
-            builder.HasRequired(t => t.RouteActionType)
+            builder.Property(t => t.RouteActionType).IsRequired();
+            builder.HasOne(t => t.RouteActionType)
                 .WithMany(t => t.RouteActions)
                 .HasForeignKey(t => t.RouteActionTypeId)
                 .OnDelete(DeleteBehavior.Cascade);

@@ -12,11 +12,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("Method_Groupe_Method");
 
-            builder.HasRequired(t => t.MethodGroupe)
+            builder.Property(t => t.MethodGroupe).IsRequired();
+            builder.HasOne(t => t.MethodGroupe)
                 .WithMany(t => t.MethodGroupeMethods)
                 .HasForeignKey(t => t.MethodGroupeId);
 
-            builder.HasRequired(t => t.RouteMethod)
+            builder.Property(t => t.RouteMethod).IsRequired();
+            builder.HasOne(t => t.RouteMethod)
                 .WithMany(t => t.MethodGroupeMethods)
                 .HasForeignKey(t => t.RouteMethodId);
         }

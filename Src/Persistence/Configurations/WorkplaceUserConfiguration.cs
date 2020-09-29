@@ -16,15 +16,12 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.UserId).HasColumnName("UserId");
             builder.Property(t => t.IsMainWorkplace).HasColumnName("IsMainWorkplace");
 
-            builder.HasRequired(t => t.Workplace)
-                .WithMany(t => t.WorkplaceUsers)
-                .HasForeignKey(t => t.WorkplaceId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasRequired(t => t.User)
-                .WithMany(t => t.WorkplacesUsers)
-                .HasForeignKey(t => t.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            
+            builder.Property(t => t.Workplace).IsRequired();
+            builder.HasOne(t => t.Workplace).WithMany(t => t.WorkplaceUsers).HasForeignKey(t => t.WorkplaceId).OnDelete(DeleteBehavior.Cascade);
+                        
+            builder.Property(t => t.User).IsRequired();
+            builder.HasOne(t => t.User).WithMany(t => t.WorkplacesUsers).HasForeignKey(t => t.UserId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 

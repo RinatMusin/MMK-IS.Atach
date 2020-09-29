@@ -20,15 +20,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ChatMessageStatus).HasColumnName("ChatMessageStatus");
             builder.Property(t => t.ChatAvatarImageLink).HasColumnName("ChatAvatarImageLink");
 
-            builder.HasRequired(t => t.ChatMember)
+            builder.Property(t => t.ChatMember).IsRequired();
+            builder.HasOne(t => t.ChatMember)
                 .WithMany(t => t.ChatMessages)
                 .HasForeignKey(t => t.ChatMemberId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Chat)
+            builder.Property(t => t.Chat).IsRequired();
+            builder.HasOne(t => t.Chat)
                 .WithMany(t => t.ChatMessages)
                 .HasForeignKey(t => t.ChatId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

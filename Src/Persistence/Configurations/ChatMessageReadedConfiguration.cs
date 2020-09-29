@@ -21,15 +21,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DocumentId).HasColumnName("DocumentId");
             builder.Property(t => t.ChatId).HasColumnName("ChatId");
 
-            builder.HasRequired(t => t.ChatMember)
+            builder.Property(t => t.ChatMember).IsRequired();
+            builder.HasOne(t => t.ChatMember)
                 .WithMany(t => t.ChatMessageReadeds)
                 .HasForeignKey(t => t.ChatMemberId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.ChatMessage)
+            builder.Property(t => t.ChatMessage).IsRequired();
+            builder.HasOne(t => t.ChatMessage)
                 .WithMany(t => t.ChatMessageReadeds)
                 .HasForeignKey(t => t.ChatMessageId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

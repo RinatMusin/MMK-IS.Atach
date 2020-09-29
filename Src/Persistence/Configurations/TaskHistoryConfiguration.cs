@@ -20,16 +20,18 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.TaskId).HasColumnName("TaskId");
             builder.Property(t => t.NewExecutionDate).HasColumnName("NewExecutionDate");
 
-            builder.HasRequired(t => t.Task)
+            builder.Property(t => t.Task).IsRequired();
+            builder.HasOne(t => t.Task)
                 .WithMany(t => t.TaskHistories)
                 .HasForeignKey(t => t.TaskId)
-                .WillCascadeOnDelete(true);
+                  .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.TaskAction)
+            builder.Property(t => t.TaskAction).IsRequired();
+            builder.HasOne(t => t.TaskAction)
               .WithMany(t => t.TaskHistories)
               .HasForeignKey(t => t.TaskActionId)
               .OnDelete(DeleteBehavior.Cascade);
-
+            
             builder.HasOne(t => t.CreatedUser)
             .WithMany(t => t.TaskHistoryCreators)
             .HasForeignKey(t => t.CreatedUserId)

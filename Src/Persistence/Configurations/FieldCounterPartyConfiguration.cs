@@ -15,15 +15,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CounterPartyTypeId).HasColumnName("CounterPartyTypeId");
             builder.Property(t => t.FiedId).HasColumnName("FiedId");
 
-            builder.HasRequired(t => t.CounterPartyType)
+            builder.Property(t => t.CounterPartyType).IsRequired();
+            builder.HasOne(t => t.CounterPartyType)
                 .WithMany(t => t.FieldCounterParties)
                 .HasForeignKey(t => t.CounterPartyTypeId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Field)
+            builder.Property(t => t.Field).IsRequired();
+            builder.HasOne(t => t.Field)
                 .WithMany(t => t.FieldCounterParties)
                 .HasForeignKey(t => t.FiedId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

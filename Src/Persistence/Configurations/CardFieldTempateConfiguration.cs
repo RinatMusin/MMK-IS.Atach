@@ -18,12 +18,14 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
 
 
-            builder.HasRequired(t => t.CardField)
+            builder.Property(t => t.CardField).IsRequired();
+            builder.HasOne(t => t.CardField)
                 .WithMany(t => t.CardFieldTempates)
                 .HasForeignKey(t => t.CardFieldId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.CardTemplate)
+            builder.Property(t => t.CardTemplate).IsRequired();
+            builder.HasOne(t => t.CardTemplate)
              .WithMany(t => t.CardFieldTempates)
              .HasForeignKey(t => t.TemplateId)
              .OnDelete(DeleteBehavior.Cascade);

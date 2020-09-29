@@ -16,16 +16,17 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.NoteId).HasColumnName("NoteId");
             builder.Property(t => t.RouteStepId).HasColumnName("RouteStepId");
 
-            builder.HasRequired(t => t.RouteStep)
+            builder.Property(t => t.RouteStep).IsRequired();
+            builder.HasOne(t => t.RouteStep)
                 .WithMany(t => t.RouteStepNotes)
                 .HasForeignKey(t => t.RouteStepId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.SendingForRevision)
-            builder.HasRequired(t => t.SendingForRevision)
+            builder.Property(t => t.SendingForRevision).IsRequired();
+            builder.HasOne(t => t.SendingForRevision)
                 .WithMany(t => t.RouteStepNotes)
                 .HasForeignKey(t => t.NoteId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

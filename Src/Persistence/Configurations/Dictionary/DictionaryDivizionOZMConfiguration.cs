@@ -16,7 +16,8 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.Code).HasColumnName("Code");
             builder.Property(t => t.EconomistId).HasColumnName("EconomistId");
 
-            builder.HasRequired(t => t.Economist)
+            builder.Property(t => t.Economist).IsRequired();
+            builder.HasOne(t => t.Economist)
                 .WithMany(t => t.Economists)
                 .HasForeignKey(t => t.EconomistId)
                 .OnDelete(DeleteBehavior.Cascade);

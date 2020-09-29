@@ -16,7 +16,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Key).HasColumnName("Key");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.Field)
+            builder.Property(t => t.Field).IsRequired();
+            builder.HasOne(t => t.Field)
                 .WithMany(t => t.FieldProperties)
                 .HasForeignKey(t => t.FieldId)
                 .OnDelete(DeleteBehavior.Cascade);

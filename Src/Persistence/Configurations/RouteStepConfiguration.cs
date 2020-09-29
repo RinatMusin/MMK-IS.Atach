@@ -38,22 +38,25 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.IsVisible).HasColumnName("IsVisible");
             builder.Property(t => t.WasRecalled).HasColumnName("WasRecalled");
 
-            builder.HasRequired(t => t.RouteStepGroup)
+            builder.Property(t => t.RouteStepGroup).IsRequired();
+            builder.HasOne(t => t.RouteStepGroup)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteStepGroupId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.Route)
+            builder.Property(t => t.Route).IsRequired();
+            builder.HasOne(t => t.Route)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.User)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.RouteStepType)
+            builder.Property(t => t.RouteStepType).IsRequired();
+            builder.HasOne(t => t.RouteStepType)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.StepTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -91,7 +94,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasOne(t => t.File)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.NoteFileId)
-                .WillCascadeOnDelete(true);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(t => t.RouteStepTemplate)
                 .WithMany(t => t.RouteSteps)

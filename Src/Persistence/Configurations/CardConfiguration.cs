@@ -27,11 +27,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(d => d.ParentCardId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasRequired(t => t.DocumentType)
+            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType)
                 .WithMany(t => t.Cards)
                 .HasForeignKey(d => d.DocumentTypeId)
-                .WillCascadeOnDelete(true);
-
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

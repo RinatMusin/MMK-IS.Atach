@@ -16,9 +16,11 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Key).HasColumnName("Key");
             builder.Property(t => t.Value).HasColumnName("Value");
 
-            builder.HasRequired(t => t.Activity)
-                .WithMany(t => t.ActivityProperties)
-                .HasForeignKey(t => t.ActivityId);
+
+            builder.Property(t => t.Activity).IsRequired();
+            //.HasRequired(t => t.Activity)
+            builder.HasOne(t => t.Activity).WithMany(t => t.ActivityProperties).HasForeignKey(t => t.ActivityId);
+                
 
         }
 

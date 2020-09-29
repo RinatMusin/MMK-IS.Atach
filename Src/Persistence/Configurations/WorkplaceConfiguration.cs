@@ -16,15 +16,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ParentWorkplaceId).HasColumnName("ParentWorkplaceId");
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
 
-            builder.HasRequired(t => t.UserOrganization)
-                .WithMany(t => t.Workplaces)
-                .HasForeignKey(t => t.OrganizationId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(t => t.ParentWorkplace)
-                .WithMany()
-                .HasForeignKey(t => t.ParentWorkplaceId)
-                .WillCascadeOnDelete(true);
+            builder.Property(t => t.UserOrganization).IsRequired();
+            builder.HasOne(t => t.UserOrganization).WithMany(t => t.Workplaces).HasForeignKey(t => t.OrganizationId).OnDelete(DeleteBehavior.Cascade);           
+           
         }
     }
 
