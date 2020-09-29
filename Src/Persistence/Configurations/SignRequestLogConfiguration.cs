@@ -24,8 +24,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ResponseStatusCode).HasColumnName("ResponseStatusCode").HasColumnType("varchar");
             builder.Property(t => t.ResponseTimestamp).HasColumnName("CreationDate");
             builder.Property(t => t.RequestTimestamp).HasColumnName("LastUpdateDate");
-            builder.Property(t => t.DocumentId).HasColumnName("DocumentId").IsOptional();
-            builder.Property(t => t.UniqueTransactionId).HasColumnName("UniqueTransactionId").IsOptional();
+            builder.Property(t => t.DocumentId).HasColumnName("DocumentId").IsRequired(false);
+            builder.Property(t => t.UniqueTransactionId).HasColumnName("UniqueTransactionId").IsRequired(false);
         }
 
     }

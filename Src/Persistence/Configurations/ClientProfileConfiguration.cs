@@ -21,21 +21,26 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Position).HasColumnName("Position");
             builder.Property(t => t.OfficePhone).HasColumnName("OfficePhone");
             builder.Property(t => t.LastThumbprint).HasColumnName("LastThumbprint");
-            builder.Property(t => t.HasDSSAccess).HasColumnName("HasDSSAccess").IsOptional();
-            builder.Property(t => t.TokenSigningIsActive).HasColumnName("TokenSigningIsActive").IsOptional();
-            builder.Property(t => t.DssSigningIsActive).HasColumnName("DssSigningIsActive").IsOptional();
-            builder.Property(t => t.PersonalNumber).HasColumnName("PersonalNumber").IsOptional();
+            builder.Property(t => t.HasDSSAccess).HasColumnName("HasDSSAccess").IsRequired(false);
+            builder.Property(t => t.TokenSigningIsActive).HasColumnName("TokenSigningIsActive").IsRequired(false);
+            builder.Property(t => t.DssSigningIsActive).HasColumnName("DssSigningIsActive").IsRequired(false);
+            builder.Property(t => t.PersonalNumber).HasColumnName("PersonalNumber").IsRequired(false);
 
 
             //// Relationships
-            builder.HasOne(m => m.ApplicationUser)
+         //   builder.HasOne(m => m.ApplicationUser).WithOptionalPrincipal(e => e.ClientProfile).Map(m => m.MapKey("ClientProfile_ClientProfileId")).OnDelete(DeleteBehavior.Cascade);
+
+            //builder.Property(cl => cl.ClientProfile).IsRequired();
+            //builder.HasOne(ds => ds.DssAuthenticationData).WithMany().IsRequired(cl => cl.ClientProfile).OnDelete(DeleteBehavior.Cascade);
+            /*TODO надо изменить
+             * this.HasOptional(m => m.ApplicationUser)
                 .WithOptionalPrincipal(e => e.ClientProfile)
                 .Map(m => m.MapKey("ClientProfile_ClientProfileId"))
-                .OnDelete(DeleteBehavior.Cascade);
+                .WillCascadeOnDelete(true);
 
-            builder.HasOne(ds => ds.DssAuthenticationData)
+            this.HasOptional(ds => ds.DssAuthenticationData)
                 .WithRequired(cl => cl.ClientProfile)
-                .OnDelete(DeleteBehavior.Cascade);
+                .WillCascadeOnDelete(true);*/
         }
 
     }

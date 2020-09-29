@@ -19,8 +19,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.Thumbprint).HasColumnName("Thumbprint");
             builder.Property(t => t.Subject).HasColumnName("Subject");
-            builder.Property(t => t.ExpirationDate).HasColumnName("ExpirationDate").IsOptional();
-            builder.Property(t => t.KonturCertificate).HasColumnName("KonturCertificate").IsOptional();
+            builder.Property(t => t.ExpirationDate).HasColumnName("ExpirationDate").IsRequired(false);
+            builder.Property(t => t.KonturCertificate).HasColumnName("KonturCertificate").IsRequired(false);
         }
     }
 }

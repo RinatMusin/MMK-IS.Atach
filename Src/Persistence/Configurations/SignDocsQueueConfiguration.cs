@@ -28,7 +28,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CertSerialNumber).HasColumnName("CertSerialNumber").HasColumnType("varchar");
             builder.Property(t => t.CertDateFrom).HasColumnName("CertDateFrom").HasColumnType("varchar");
             builder.Property(t => t.CertDateTo).HasColumnName("CertDateTo").HasColumnType("varchar");
-            builder.Property(t => t.UniqueTransactionId).HasColumnName("UniqueTransactionId").IsOptional();
+            builder.Property(t => t.UniqueTransactionId).HasColumnName("UniqueTransactionId").IsRequired(false);
         }
 
     }

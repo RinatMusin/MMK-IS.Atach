@@ -18,7 +18,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DocumentId).HasColumnName("DocumentId");
             builder.Property(t => t.TaskId).HasColumnName("TaskId");
             builder.Property(t => t.CreationTime).HasColumnName("CreationTime");
-            builder.Property(t => t.CompletionTime).HasColumnName("CompletionTime").IsOptional();
+            builder.Property(t => t.CompletionTime).HasColumnName("CompletionTime").IsRequired(false);
 
             builder.Property(t => t.Document).IsRequired();
             builder.HasOne(t => t.Document)
