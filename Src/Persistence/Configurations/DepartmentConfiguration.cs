@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class DepartmentMap : IEntityTypeConfiguration<Department>
+    public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
     {
         public void Configure(EntityTypeBuilder<Department> builder)
         {

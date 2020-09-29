@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ApplicationTypeMap : IEntityTypeConfiguration<ApplicationType>
+    public class ApplicationTypeConfiguration : IEntityTypeConfiguration<ApplicationType>
     {
         public void Configure(EntityTypeBuilder<ApplicationType> builder)
         {

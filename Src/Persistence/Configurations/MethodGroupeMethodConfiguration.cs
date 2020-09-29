@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    class MethodGroupeMethodMap : IEntityTypeConfiguration<MethodGroupeMethod>
+    class MethodGroupeMethodConfiguration : IEntityTypeConfiguration<MethodGroupeMethod>
     {
         public void Configure(EntityTypeBuilder<MethodGroupeMethod> builder)
         {

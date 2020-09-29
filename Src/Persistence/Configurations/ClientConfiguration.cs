@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ClientMap : IEntityTypeConfiguration<Client>
+    public class ClientConfiguration : IEntityTypeConfiguration<Client>
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {

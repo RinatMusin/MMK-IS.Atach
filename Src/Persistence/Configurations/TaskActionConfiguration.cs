@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class TaskActionMap : IEntityTypeConfiguration<TaskAction>
+    public class TaskActionConfiguration : IEntityTypeConfiguration<TaskAction>
     {
         public void Configure(EntityTypeBuilder<TaskAction> builder)
         {

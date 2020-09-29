@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class FieldTargetTypeMap : IEntityTypeConfiguration<FieldTargetType>
+    public class FieldTargetTypeConfiguration : IEntityTypeConfiguration<FieldTargetType>
     {
         public void Configure(EntityTypeBuilder<FieldTargetType> builder)
         {

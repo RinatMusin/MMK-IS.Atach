@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class UserGroupAssignMap : IEntityTypeConfiguration<UserGroupAssign>
+    public class UserGroupAssignConfiguration : IEntityTypeConfiguration<UserGroupAssign>
     {
         public void Configure(EntityTypeBuilder<UserGroupAssign> builder)
         {

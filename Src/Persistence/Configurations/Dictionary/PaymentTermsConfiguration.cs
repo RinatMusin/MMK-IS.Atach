@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class PaymentTermsMap : IEntityTypeConfiguration<DictionaryPaymentTerms>
+    public class PaymentTermsConfiguration : IEntityTypeConfiguration<DictionaryPaymentTerms>
     {
         public void Configure(EntityTypeBuilder<DictionaryPaymentTerms> builder)
         {

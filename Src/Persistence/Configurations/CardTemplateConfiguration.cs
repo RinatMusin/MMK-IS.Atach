@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    class CardTemplateMap : IEntityTypeConfiguration<CardTemplate>
+    class CardTemplateConfiguration : IEntityTypeConfiguration<CardTemplate>
     {
         public void Configure(EntityTypeBuilder<CardTemplate> builder)
         {

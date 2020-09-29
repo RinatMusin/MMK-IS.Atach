@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class CardFieldTempateMap : IEntityTypeConfiguration<CardFieldTempate>
+    public class CardFieldTempateConfiguration : IEntityTypeConfiguration<CardFieldTempate>
     {
         public void Configure(EntityTypeBuilder<CardFieldTempate> builder)
         {

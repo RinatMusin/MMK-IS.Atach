@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class DictionaryDivizionOZMMap : IEntityTypeConfiguration<DictionaryDivizionOZM>
+    public class DictionaryDivizionOZMConfiguration : IEntityTypeConfiguration<DictionaryDivizionOZM>
     {
         public void Configure(EntityTypeBuilder<DictionaryDivizionOZM> builder)
         {

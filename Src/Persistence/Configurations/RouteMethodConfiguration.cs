@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Domain.Entities
 {
-    public class RouteMethodMap : IEntityTypeConfiguration<RouteMethod>
+    public class RouteMethodConfiguration : IEntityTypeConfiguration<RouteMethod>
     {
         public void Configure(EntityTypeBuilder<RouteMethod> builder)
         {

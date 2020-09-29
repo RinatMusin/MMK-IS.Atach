@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class RouteMap : IEntityTypeConfiguration<Route>
+    public class RouteConfiguration : IEntityTypeConfiguration<Route>
     {
         public void Configure(EntityTypeBuilder<Route> builder)
         {

@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class FilePageMap : IEntityTypeConfiguration<FilePage>
+    public class FilePageConfiguration : IEntityTypeConfiguration<FilePage>
     {
         public void Configure(EntityTypeBuilder<FilePage> builder)
         {

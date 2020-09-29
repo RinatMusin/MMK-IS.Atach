@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class FieldGroupMap : IEntityTypeConfiguration<FieldGroup>
+    public class FieldGroupConfiguration : IEntityTypeConfiguration<FieldGroup>
     {
         public void Configure(EntityTypeBuilder<FieldGroup> builder)
         {

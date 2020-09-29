@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class RouteStepNoteMap : IEntityTypeConfiguration<RouteStepNote>
+    public class RouteStepNoteConfiguration : IEntityTypeConfiguration<RouteStepNote>
     {
         public void Configure(EntityTypeBuilder<RouteStepNote> builder)
         {

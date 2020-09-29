@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class SubSubjectMap : IEntityTypeConfiguration<DictionarySubSubject>
+    public class SubSubjectConfiguration : IEntityTypeConfiguration<DictionarySubSubject>
     {
         public void Configure(EntityTypeBuilder<DictionarySubSubject> builder)
         {

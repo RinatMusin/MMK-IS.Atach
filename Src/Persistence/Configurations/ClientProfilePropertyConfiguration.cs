@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ClientProfilePropertyMap : IEntityTypeConfiguration<ClientProfileProperty>
+    public class ClientProfilePropertyConfiguration : IEntityTypeConfiguration<ClientProfileProperty>
     {
         public void Configure(EntityTypeBuilder<ClientProfileProperty> builder)
         {

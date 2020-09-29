@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class DeliveryDirectionMap : IEntityTypeConfiguration<DeliveryDirection>
+    public class DeliveryDirectionConfiguration : IEntityTypeConfiguration<DeliveryDirection>
     {
         public void Configure(EntityTypeBuilder<DeliveryDirection> builder)
         {

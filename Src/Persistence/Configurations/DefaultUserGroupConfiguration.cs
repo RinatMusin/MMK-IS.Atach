@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class DefaultUserSettingsMap : IEntityTypeConfiguration<DefaultUserSettings>
+    public class DefaultUserSettingsConfiguration : IEntityTypeConfiguration<DefaultUserSettings>
     {
         public void Configure(EntityTypeBuilder<DefaultUserSettings> builder)
         {

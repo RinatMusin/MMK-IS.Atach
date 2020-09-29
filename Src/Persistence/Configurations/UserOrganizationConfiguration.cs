@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class UserOrganizationMap : IEntityTypeConfiguration<UserOrganization>
+    public class UserOrganizationConfiguration : IEntityTypeConfiguration<UserOrganization>
     {
         public void Configure(EntityTypeBuilder<UserOrganization> builder)
         {

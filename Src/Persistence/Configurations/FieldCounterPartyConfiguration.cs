@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class FieldCounterPartyTypeMap : IEntityTypeConfiguration<FieldCounterPartyType>
+    public class FieldCounterPartyTypeConfiguration : IEntityTypeConfiguration<FieldCounterPartyType>
     {
         public void Configure(EntityTypeBuilder<FieldCounterPartyType> builder)
         {

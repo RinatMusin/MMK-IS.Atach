@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class CargoNameMap : IEntityTypeConfiguration<CargoName>
+    public class CargoNameConfiguration : IEntityTypeConfiguration<CargoName>
     {
         public void Configure(EntityTypeBuilder<CargoName> builder)
         {

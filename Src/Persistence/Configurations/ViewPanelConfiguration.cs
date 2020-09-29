@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ViewPanelMap : IEntityTypeConfiguration<ViewPanel>
+    public class ViewPanelConfiguration : IEntityTypeConfiguration<ViewPanel>
     {
         public void Configure(EntityTypeBuilder<ViewPanel> builder)
         {

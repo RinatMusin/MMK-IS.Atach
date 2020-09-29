@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class DocumentTypeMap : IEntityTypeConfiguration<DocumentType>
+    public class DocumentTypeConfiguration : IEntityTypeConfiguration<DocumentType>
     {
         public void Configure(EntityTypeBuilder<DocumentType> builder)
         {

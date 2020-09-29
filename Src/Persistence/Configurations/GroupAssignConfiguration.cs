@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class GroupAssignMap : IEntityTypeConfiguration<GroupAssign>
+    public class GroupAssignConfiguration : IEntityTypeConfiguration<GroupAssign>
     {
         public void Configure(EntityTypeBuilder<GroupAssign> builder)
         {

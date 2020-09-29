@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class DictionaryPropertyTypeMap : IEntityTypeConfiguration<DictionaryPropertyType>
+    public class DictionaryPropertyTypeConfiguration : IEntityTypeConfiguration<DictionaryPropertyType>
     {
         public void Configure(EntityTypeBuilder<DictionaryPropertyType> builder)
         {

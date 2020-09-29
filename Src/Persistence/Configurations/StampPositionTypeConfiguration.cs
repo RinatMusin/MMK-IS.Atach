@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class StampPositionTypeMap : IEntityTypeConfiguration<StampPositionType>
+    public class StampPositionTypeConfiguration : IEntityTypeConfiguration<StampPositionType>
     {
         public void Configure(EntityTypeBuilder<StampPositionType> builder)
         {

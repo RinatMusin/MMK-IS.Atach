@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class KonturCloudTransactionMap : IEntityTypeConfiguration<KonturCloudTransaction>
+    public class KonturCloudTransactionConfiguration : IEntityTypeConfiguration<KonturCloudTransaction>
     {
         public void Configure(EntityTypeBuilder<KonturCloudTransaction> builder)
         {

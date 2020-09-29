@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ApplicationRoleActivityMap : IEntityTypeConfiguration<ApplicationRoleActivity>
+    public class ApplicationRoleActivityConfiguration : IEntityTypeConfiguration<ApplicationRoleActivity>
     {
         public void Configure(EntityTypeBuilder<ApplicationRoleActivity> builder)
         {

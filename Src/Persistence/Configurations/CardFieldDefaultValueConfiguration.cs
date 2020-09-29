@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class CardFieldDefaultValueMap : IEntityTypeConfiguration<CardFieldDefaultValue>
+    public class CardFieldDefaultValueConfiguration : IEntityTypeConfiguration<CardFieldDefaultValue>
     {
         public void Configure(EntityTypeBuilder<CardFieldDefaultValue> builder)
         {

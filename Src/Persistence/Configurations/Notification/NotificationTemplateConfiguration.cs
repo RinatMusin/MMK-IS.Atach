@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Notification;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Notification
 {
-    public class NotificationTemplateMap : IEntityTypeConfiguration<NotificationTemplate>
+    public class NotificationTemplateConfiguration : IEntityTypeConfiguration<NotificationTemplate>
     {
         public void Configure(EntityTypeBuilder<NotificationTemplate> builder)
         {

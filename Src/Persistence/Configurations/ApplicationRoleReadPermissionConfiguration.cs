@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ApplicationRoleReadPermissionMap : IEntityTypeConfiguration<ApplicationRoleReadPermission>
+    public class ApplicationRoleReadPermissionConfiguration : IEntityTypeConfiguration<ApplicationRoleReadPermission>
     {
         public void Configure(EntityTypeBuilder<ApplicationRoleReadPermission> builder)
         {

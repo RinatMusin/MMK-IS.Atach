@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ActivityPropertyMap : IEntityTypeConfiguration<ActivityProperty>
+    public class ActivityPropertyConfiguration : IEntityTypeConfiguration<ActivityProperty>
     {
         public void Configure(EntityTypeBuilder<ActivityProperty> builder)
         {

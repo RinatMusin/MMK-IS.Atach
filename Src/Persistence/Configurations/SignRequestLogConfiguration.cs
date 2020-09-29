@@ -5,7 +5,7 @@ using MMK_IS.Atach.Domain.Entities;
 namespace MMK_IS.Atach.Persistence.Configurations
 {
 
-    public class SignRequestLogMap : IEntityTypeConfiguration<SignRequestLog>
+    public class SignRequestLogConfiguration : IEntityTypeConfiguration<SignRequestLog>
     {
         public void Configure(EntityTypeBuilder<SignRequestLog> builder)
         {

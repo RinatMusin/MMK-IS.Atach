@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class FileProcessingStatusMap : IEntityTypeConfiguration<FileProcessingStatus>
+    public class FileProcessingStatusConfiguration : IEntityTypeConfiguration<FileProcessingStatus>
     {
         public void Configure(EntityTypeBuilder<FileProcessingStatus> builder)
         {

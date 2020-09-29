@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class GroupCFOUsersMap : IEntityTypeConfiguration<DictionaryGroupCFOUsers>
+    public class GroupCFOUsersConfiguration : IEntityTypeConfiguration<DictionaryGroupCFOUsers>
     {
         public void Configure(EntityTypeBuilder<DictionaryGroupCFOUsers> builder)
         {

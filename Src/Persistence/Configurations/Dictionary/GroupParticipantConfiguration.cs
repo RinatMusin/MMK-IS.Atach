@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class GroupParticipantMap : IEntityTypeConfiguration<DictionaryGroupParticipant>
+    public class GroupParticipantConfiguration : IEntityTypeConfiguration<DictionaryGroupParticipant>
     {
         public void Configure(EntityTypeBuilder<DictionaryGroupParticipant> builder)
         {

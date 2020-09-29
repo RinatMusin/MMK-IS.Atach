@@ -5,7 +5,7 @@ using MMK_IS.Atach.Domain.Entities;
 namespace MMK_IS.Atach.Persistence.Configurations
 {
 
-    public class SignDocsQueueMap : IEntityTypeConfiguration<SignDocsQueue>
+    public class SignDocsQueueConfiguration : IEntityTypeConfiguration<SignDocsQueue>
     {
         public void Configure(EntityTypeBuilder<SignDocsQueue> builder)
         {

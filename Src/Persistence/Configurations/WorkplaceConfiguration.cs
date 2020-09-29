@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class WorkplaceMap : IEntityTypeConfiguration<Workplace>
+    public class WorkplaceConfiguration : IEntityTypeConfiguration<Workplace>
     {
         public void Configure(EntityTypeBuilder<Workplace> builder)
         {

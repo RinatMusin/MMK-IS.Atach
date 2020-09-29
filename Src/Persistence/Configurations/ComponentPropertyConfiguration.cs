@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ComponentPropertyMap : IEntityTypeConfiguration<ComponentProperty>
+    public class ComponentPropertyConfiguration : IEntityTypeConfiguration<ComponentProperty>
     {
         public void Configure(EntityTypeBuilder<ComponentProperty> builder)
         {

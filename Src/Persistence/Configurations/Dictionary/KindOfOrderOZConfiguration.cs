@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class KindOfOrderOZMap : IEntityTypeConfiguration<DictionaryKindOfOrderOZ>
+    public class KindOfOrderOZConfiguration : IEntityTypeConfiguration<DictionaryKindOfOrderOZ>
     {
         public void Configure(EntityTypeBuilder<DictionaryKindOfOrderOZ> builder)
         {

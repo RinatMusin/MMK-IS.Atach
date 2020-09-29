@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class CounterPartyMap : IEntityTypeConfiguration<DictionaryCounterParty>
+    public class CounterPartyConfiguration : IEntityTypeConfiguration<DictionaryCounterParty>
     {
         public void Configure(EntityTypeBuilder<DictionaryCounterParty> builder)
         {

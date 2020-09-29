@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class TaskStatusActivityMap : IEntityTypeConfiguration<TaskStatusActivity>
+    public class TaskStatusActivityConfiguration : IEntityTypeConfiguration<TaskStatusActivity>
     {
         public void Configure(EntityTypeBuilder<TaskStatusActivity> builder)
         {

@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class DocumentStatusMap : IEntityTypeConfiguration<DocumentStatus>
+    public class DocumentStatusConfiguration : IEntityTypeConfiguration<DocumentStatus>
     {
         public void Configure(EntityTypeBuilder<DocumentStatus> builder)
         {

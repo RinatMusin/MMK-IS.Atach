@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class RouteActionTypeMap : IEntityTypeConfiguration<RouteActionType>
+    public class RouteActionTypeConfiguration : IEntityTypeConfiguration<RouteActionType>
     {
         public void Configure(EntityTypeBuilder<RouteActionType> builder)
         {

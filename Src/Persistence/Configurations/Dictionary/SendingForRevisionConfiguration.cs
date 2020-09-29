@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class SendingForRevisionMap : IEntityTypeConfiguration<DictionarySendingForRevision>
+    public class SendingForRevisionConfiguration : IEntityTypeConfiguration<DictionarySendingForRevision>
     {
         public void Configure(EntityTypeBuilder<DictionarySendingForRevision> builder)
         {

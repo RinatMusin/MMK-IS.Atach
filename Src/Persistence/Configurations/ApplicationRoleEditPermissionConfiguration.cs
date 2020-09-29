@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ApplicationRoleEditPermissionMap : IEntityTypeConfiguration<ApplicationRoleEditPermission>
+    public class ApplicationRoleEditPermissionConfiguration : IEntityTypeConfiguration<ApplicationRoleEditPermission>
     {
         public void Configure(EntityTypeBuilder<ApplicationRoleEditPermission> builder)
         {

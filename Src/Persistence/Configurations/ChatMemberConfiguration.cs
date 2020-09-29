@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities;
 
 namespace MMK_IS.Atach.Persistence.Configurations
 {
-    public class ChatMemberMap : IEntityTypeConfiguration<ChatMember>
+    public class ChatMemberConfiguration : IEntityTypeConfiguration<ChatMember>
     {
         public void Configure(EntityTypeBuilder<ChatMember> builder)
         {

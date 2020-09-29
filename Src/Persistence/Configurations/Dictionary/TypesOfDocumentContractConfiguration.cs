@@ -4,7 +4,7 @@ using MMK_IS.Atach.Domain.Entities.Dictionary;
 
 namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 {
-    public class TypesOfDocumentContractMap : IEntityTypeConfiguration<DictionaryTypesOfDocumentContract>
+    public class TypesOfDocumentContractConfiguration : IEntityTypeConfiguration<DictionaryTypesOfDocumentContract>
     {
         public void Configure(EntityTypeBuilder<DictionaryTypesOfDocumentContract> builder)
         {
