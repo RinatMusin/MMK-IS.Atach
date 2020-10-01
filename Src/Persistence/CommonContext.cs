@@ -5,22 +5,27 @@ using MMK_IS.Atach.Persistence.Configurations;
 using MMK_IS.Atach.Persistence.Configurations.Dictionary;
 using MMK_IS.Atach.Domain;
 
-
 namespace MMK_IS.Atach.Persistence
 {
     public partial class CommonContext : DbContext// IdentityDbContext<ApplicationUser>
     {
-        static CommonContext()
+     /*  static CommonContext()
         {
-            Database.SetInitializer<CommonContext>(null);
+            Database.EnsureCreated();
+            //Database.SetInitializer<CommonContext>(null);
 
-        }
-        public CommonContext() : base("Name=CommonContext")
+        }*/
+        public CommonContext() 
         {
-            this.Configuration.LazyLoadingEnabled = true;
+            Database.EnsureCreated();
+            // this.Configuration.LazyLoadingEnabled = true;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("Server=192.168.137.52;User Id=touchdb;Password=qwe12345;Port=5432;Database=attach_core;");
         }
 
-    //TODO   public DbSet<IdentityUserRole> IdentityUserRoles { get; set; }
+        //TODO   public DbSet<IdentityUserRole> IdentityUserRoles { get; set; }
         public DbSet<DocumentAttachment> DocumentAttachments { get; set; }
         public DbSet<FileProcessingStatus> FileProcessingStatuses { get; set; }
         public DbSet<FileEdit> AttachmentEdits { get; set; }
