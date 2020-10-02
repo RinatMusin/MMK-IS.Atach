@@ -76,6 +76,8 @@ namespace MMK_IS.Atach.Persistence
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<ApplicationType> ApplicationTypes { get; set; }
         public DbSet<Workplace> Workplaces { get; set; }
+        public DbSet<WorkplaceProperty> WorkplaceProperties { get; set; }
+
 
         public DbSet<Activity> Activities { get; set; }
         public DbSet<ActivityProperty> ActivityProperties { get; set; }
@@ -86,6 +88,9 @@ namespace MMK_IS.Atach.Persistence
 
         public DbSet<Group> Groups { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<GroupAssign> GroupAssigns { get; set; }
+        public DbSet<UserGroupAssign> UserGroupAssigns { get; set; }
+
 
 
         public DbSet<UserOrganization> UserOrganizations { get; set; }
@@ -112,6 +117,8 @@ namespace MMK_IS.Atach.Persistence
         public DbSet<ComponentProperty> ComponentProperties { get; set; }
         public DbSet<ComponentElement> ComponentElements { get; set; }
         public DbSet<Element> Elements { get; set; }
+        public DbSet<DefaultUserSettings> DefaultUserSettings { get; set; }
+
         public DbSet<UserSettings> UserSettings { get; set; }
         public DbSet<ElementProperty> ElementProperties { get; set; }
         public DbSet<ElementDefaultValue> ElementDefaultValues { get; set; }
@@ -134,7 +141,10 @@ namespace MMK_IS.Atach.Persistence
         public DbSet<DictionaryTypesOfContract> TypesOfContract { get; set; }
         public DbSet<DictionaryTypesOfDocumentContract> TypesOfDocumentContract { get; set; }
         public DbSet<DictionaryKindOfDocument> KindOfDocument { get; set; }
-        public DbSet<DictionarySubSubject> DictionarySubSubject { get; set; }
+        public DbSet<DictionaryKindOfOrderOZ> KindOfOrderOZ { get; set; }
+        public DbSet<DictionaryKindOfStatement> KindOfStatement { get; set; }
+        public DbSet<DictionaryDepartmentDirectory> DepartmentDirectory { get; set; }
+        public DbSet<DictionarySubSubject> DictionarySubSubject { get; set; }        
         public DbSet<DictionarySubject> DictionarySubject { get; set; }
         public DbSet<DictionaryYesNo> DictionaryYesNo { get; set; }
         public DbSet<DictionaryGroupCFO> DictionaryGroupCFO { get; set; }
@@ -147,6 +157,7 @@ namespace MMK_IS.Atach.Persistence
         public DbSet<DictionaryGroupCFOUsers> DictionaryGroupCFOUsers { get; set; }
         public DbSet<DictionaryDivizionOZM> DictionaryDivizionOZMs { get; set; }
         public DbSet<DictionaryProperty> DictionaryProperties { get; set; }
+        public DbSet<DictionaryPropertyDocumentType> DictionaryPropertyDocumentTypes { get; set; }
         public DbSet<DictionaryPropertyType> DictionaryPropertyTypes { get; set; }
         public DbSet<RouteStepProperty> RouteStepProperties { get; set; }
         public DbSet<RouteStepTemplateProperty> RouteStepTemplateProperties { get; set; }
@@ -168,6 +179,15 @@ namespace MMK_IS.Atach.Persistence
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
 
         public DbSet<Rating> Ratings { get; set; }
+
+        public DbSet<Domain.Entities.Notification.Notification> Notifications { get; set; }
+        public DbSet<Domain.Entities.Notification.NotificationTemplate> NotificationTemplates { get; set; }
+        public DbSet<Domain.Entities.Notification.NotificationTemplateTag> NotificationTemplateTags { get; set; }
+        public DbSet<Domain.Entities.Notification.NotificationTemplateVariable> NotificationTemplateVariables { get; set; }
+        public DbSet<Domain.Entities.Notification.NotificationType> NotificationTypes { get; set; }
+
+        public DbSet<KonturCloudTransaction> konturCloudTransactions { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -214,6 +234,7 @@ namespace MMK_IS.Atach.Persistence
             modelBuilder.ApplyConfiguration(new ClientProfileConfiguration());
             modelBuilder.ApplyConfiguration(new ClientProfileReplacementConfiguration());
             modelBuilder.ApplyConfiguration(new WorkplaceConfiguration());
+            modelBuilder.ApplyConfiguration(new WorkplacePropertyConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
             modelBuilder.ApplyConfiguration(new RefreshTokenConfiguration());
             modelBuilder.ApplyConfiguration(new ApplicationTypeConfiguration());
@@ -252,6 +273,7 @@ namespace MMK_IS.Atach.Persistence
             modelBuilder.ApplyConfiguration(new ComponentPropertyConfiguration());
             modelBuilder.ApplyConfiguration(new ComponentElementConfiguration());
             modelBuilder.ApplyConfiguration(new ElementConfiguration());
+            modelBuilder.ApplyConfiguration(new DefaultUserSettingsConfiguration());
             modelBuilder.ApplyConfiguration(new UserSettingsConfiguration());
             modelBuilder.ApplyConfiguration(new ElementPropertyConfiguration());
             modelBuilder.ApplyConfiguration(new ElementDefaultValueConfiguration());
@@ -272,7 +294,10 @@ namespace MMK_IS.Atach.Persistence
             modelBuilder.ApplyConfiguration(new TypesOfContractConfiguration());
             modelBuilder.ApplyConfiguration(new TypesOfDocumentContractConfiguration());
             modelBuilder.ApplyConfiguration(new KindOfDocumentConfiguration());
-            modelBuilder.ApplyConfiguration(new SubSubjectConfiguration());
+            modelBuilder.ApplyConfiguration(new KindOfOrderOZConfiguration());
+            modelBuilder.ApplyConfiguration(new KindOfStatementConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentDirectoryConfiguration());
+            modelBuilder.ApplyConfiguration(new SubSubjectConfiguration());            
             modelBuilder.ApplyConfiguration(new SubjectConfiguration());
             modelBuilder.ApplyConfiguration(new YesNoConfiguration());
             modelBuilder.ApplyConfiguration(new GroupCFOConfiguration());
@@ -286,7 +311,9 @@ namespace MMK_IS.Atach.Persistence
             modelBuilder.ApplyConfiguration(new DictionaryDivizionOZMConfiguration());
             modelBuilder.ApplyConfiguration(new DSSAuthenticationDataConfiguration());
 
+
             modelBuilder.ApplyConfiguration(new DictionaryPropertyConfiguration());
+            modelBuilder.ApplyConfiguration(new DictionaryPropertyDocumentTypeConfiguration());
             modelBuilder.ApplyConfiguration(new DictionaryPropertyTypeConfiguration());
             modelBuilder.ApplyConfiguration(new RouteStepPropertyConfiguration());
             modelBuilder.ApplyConfiguration(new RouteStepTemplatePropertyConfiguration());
@@ -309,6 +336,16 @@ namespace MMK_IS.Atach.Persistence
             modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
 
             modelBuilder.ApplyConfiguration(new RatingConfiguration());
+
+            // Notifications mapping
+            modelBuilder.ApplyConfiguration(new Configurations.Notification.NotificationConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.Notification.NotificationTemplateConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.Notification.NotificationTemplateTagConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.Notification.NotificationTemplateVariableConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.Notification.NotificationTypeConfiguration());
+
+            modelBuilder.ApplyConfiguration(new KonturCloudTransactionConfiguration());
+
         }
     }
 }

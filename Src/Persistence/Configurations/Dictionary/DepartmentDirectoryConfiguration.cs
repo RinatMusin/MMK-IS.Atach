@@ -9,7 +9,7 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
         public void Configure(EntityTypeBuilder<DictionaryDepartmentDirectory> builder)
         {
            builder.HasKey(t => t.DepartmentDirectoryId);
-
+            
             builder.ToTable("Dictionary_DepartmentDirectory");
 
             builder.Property(t => t.DepartmentDirectory).HasColumnName("DepartmentDirectory");
