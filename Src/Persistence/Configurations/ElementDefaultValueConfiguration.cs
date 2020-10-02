@@ -16,7 +16,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
-            builder.Property(t => t.Element).IsRequired();
+            builder.HasOne(t => t.Element).WithOne().IsRequired();
             builder.HasOne(t => t.Element)
                 .WithMany(t => t.ElementDefaultValues)
                 .HasForeignKey(d => d.ElementId)

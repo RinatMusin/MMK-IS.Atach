@@ -18,13 +18,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.StartTime).HasColumnName("StartTime");
             builder.Property(t => t.IsDisabled).HasColumnName("IsDisabled");
 
-            builder.Property(t => t.User).IsRequired();
+            builder.HasOne(t => t.User).WithOne().IsRequired();
             builder.HasOne(t => t.User)
                 .WithMany(t => t.ReplacementUsers)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.UserReplacement).IsRequired();
+            builder.HasOne(t => t.UserReplacement).WithOne().IsRequired();
             builder.HasOne(t => t.UserReplacement)
                 .WithMany(t => t.ClientProfileReplacements)
                 .HasForeignKey(t => t.UserReplacementId)

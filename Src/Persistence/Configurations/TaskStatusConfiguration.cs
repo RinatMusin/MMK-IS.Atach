@@ -24,7 +24,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
 
             // Relationships
-            builder.Property(t => t.TaskStatusType).IsRequired();
+            builder.HasOne(t => t.TaskStatusType).WithOne().IsRequired();
             builder.HasOne(t => t.TaskStatusType)
                 .WithMany(t => t.TaskStatuses)
                 .HasForeignKey(d => d.StatusTypeId)

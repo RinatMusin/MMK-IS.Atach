@@ -17,7 +17,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Value).HasColumnName("Value");
 
 
-            builder.Property(t => t.Activity).IsRequired();
+            builder.HasOne(t => t.Activity).WithOne().IsRequired();
             //.HasRequired(t => t.Activity)
             builder.HasOne(t => t.Activity).WithMany(t => t.ActivityProperties).HasForeignKey(t => t.ActivityId);
                 

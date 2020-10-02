@@ -18,7 +18,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.OrganizationTypeId).HasColumnName("OrganizationTypeId");
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
 
-            builder.Property(t => t.UserOrganizationType).IsRequired();
+            builder.HasOne(t => t.UserOrganizationType).WithOne().IsRequired();
             builder.HasOne(t => t.UserOrganizationType)
               .WithMany(t => t.UserOrganizations)
               .HasForeignKey(t => t.OrganizationTypeId)

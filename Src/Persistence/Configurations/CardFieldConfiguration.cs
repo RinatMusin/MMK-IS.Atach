@@ -26,13 +26,14 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
             // Relationships
-            builder.Property(t => t.Card).IsRequired();
+            builder.HasOne(t => t.Card).WithOne().IsRequired();
             builder.HasOne(t => t.Card)
                 .WithMany(t => t.CardFields)
                 .HasForeignKey(d => d.CardId)
                 .OnDelete(DeleteBehavior.Cascade);
-            
-            builder.Property(t => t.Field).IsRequired();
+
+            //builder.HasOne(t => t.DocumentType).WithOne().WithOne().IsRequired();
+            builder.HasOne(t => t.Field).WithOne().IsRequired();
             builder.HasOne(t => t.Field)
                 .WithMany(t => t.CardFields)
                 .HasForeignKey(d => d.FieldId)

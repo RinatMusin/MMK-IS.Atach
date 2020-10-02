@@ -172,7 +172,8 @@ namespace MMK_IS.Atach.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new CardConfiguration());
+            modelBuilder.Entity<ApplicationRole>(c => c.HasNoKey());
+            
             modelBuilder.ApplyConfiguration(new CardConfiguration());
             modelBuilder.ApplyConfiguration(new CardFieldConfiguration());
             modelBuilder.ApplyConfiguration(new CardFieldDefaultValueConfiguration());

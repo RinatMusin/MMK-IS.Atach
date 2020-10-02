@@ -19,7 +19,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.QntUnreadedMessages).HasColumnName("QntUnreadedMessages");
             builder.Property(t => t.LastUpdateMessages).HasColumnName("LastUpdateMessages");
 
-             builder.Property(t => t.Task).IsRequired(); 
+             builder.HasOne(t => t.Task).WithOne().IsRequired(); 
             builder.HasOne(t => t.Task)
                 .WithMany(t => t.ChatMessagesQnt)
                 .HasForeignKey(t => t.TaskId)

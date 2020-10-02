@@ -16,10 +16,10 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.WorkplaceId).HasColumnName("WorkplaceId");
                         
-            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty).WithOne().IsRequired();
             builder.HasOne(t => t.DictionaryProperty).WithMany(t => t.WorkplaceProperties).HasForeignKey(t => t.DictionaryPropertyId);
             
-            builder.Property(t => t.Workplace).IsRequired();
+            builder.HasOne(t => t.Workplace).WithOne().IsRequired();
             builder.HasOne(t => t.Workplace).WithMany(t => t.WorkplaceProperties).HasForeignKey(t => t.WorkplaceId);
         }
     }

@@ -17,7 +17,7 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.Email).HasColumnName("Email");
             builder.Property(t => t.Position).HasColumnName("Position");
 
-            builder.Property(t => t.Organization).IsRequired();
+            builder.HasOne(t => t.Organization).WithOne().IsRequired();
             builder.HasOne(t => t.Organization)
                 .WithMany(t => t.Users)
                 .HasForeignKey(t => t.OrganizationId)

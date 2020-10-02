@@ -16,7 +16,7 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.PropertyTypeId).HasColumnName("PropertyTypeId");
             builder.Property(t => t.Name).HasColumnName("Name");
 
-            builder.Property(t => t.PropertyType).IsRequired();
+            builder.HasOne(t => t.PropertyType).WithOne().IsRequired();
             builder.HasOne(t => t.PropertyType)
                 .WithMany(t => t.Properties)
                 .HasForeignKey(t => t.PropertyTypeId)

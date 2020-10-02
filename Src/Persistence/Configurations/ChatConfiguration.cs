@@ -23,13 +23,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
 
-            builder.Property(t => t.ChatCreatedProfile).IsRequired();
+            builder.HasOne(t => t.ChatCreatedProfile).WithOne().IsRequired();
             builder.HasOne(t => t.ChatCreatedProfile)
                 .WithMany(t => t.Chats)
                 .HasForeignKey(t => t.ChatCreatedProfileId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document).WithOne().IsRequired();
             builder.HasOne(t => t.Document)
                 .WithMany(t => t.Chats)
                 .HasForeignKey(t => t.DocumentId)

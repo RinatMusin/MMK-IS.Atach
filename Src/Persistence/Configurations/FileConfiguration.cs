@@ -29,7 +29,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(t => t.ParentFileId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.FileType).IsRequired();
+            builder.HasOne(t => t.FileType).WithOne().IsRequired();
             builder.HasOne(t => t.FileType)
                 .WithMany(t => t.Files)
                 .HasForeignKey(t => t.FileTypeId)

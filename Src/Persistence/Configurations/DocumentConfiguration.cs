@@ -26,19 +26,19 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.IsForReplacement).HasColumnName("IsForReplacement");
             builder.Property(t => t.IsForTask).HasColumnName("IsForTask");
 
-            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)
              .WithMany(t => t.Documents)
              .HasForeignKey(t => t.DocumentTypeId)
              .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.CreationUser).IsRequired();
+            builder.HasOne(t => t.CreationUser).WithOne().IsRequired();
             builder.HasOne(t => t.CreationUser)
                 .WithMany(t => t.Documents)
                 .HasForeignKey(t => t.CreatedUserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.DocumentStatus).IsRequired();
+            builder.HasOne(t => t.DocumentStatus).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentStatus)
                 .WithMany(t => t.Documents)
                 .HasForeignKey(t => t.DocumentStatusId)

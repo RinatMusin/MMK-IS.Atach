@@ -14,13 +14,13 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.PropertyId).HasColumnName("PropertyId");
             builder.Property(t => t.DocumentTypeId).HasColumnName("DocumentTypeId");
 
-            builder.Property(t => t.DictionaryProperty).IsRequired();
+            builder.HasOne(t => t.DictionaryProperty).WithOne().IsRequired();
             builder.HasOne(t => t.DictionaryProperty)
                 .WithMany(t => t.DictionaryPropertyDocumentTypes)
                 .HasForeignKey(t => t.PropertyId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)
                 .WithMany(t => t.DictionaryPropertyDocumentTypes)
                 .HasForeignKey(t => t.DocumentTypeId)

@@ -20,13 +20,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CreationTime).HasColumnName("CreationTime");
             builder.Property(t => t.CompletionTime).HasColumnName("CompletionTime").IsRequired(false);
 
-            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document).WithOne().IsRequired();
             builder.HasOne(t => t.Document)
                 .WithMany()
                 .HasForeignKey(t => t.DocumentId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.Task).IsRequired();
+            builder.HasOne(t => t.Task).WithOne().IsRequired();
             builder.HasOne(t => t.Task)
               .WithMany()
               .HasForeignKey(d => d.TaskId)

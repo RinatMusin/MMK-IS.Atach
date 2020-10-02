@@ -16,13 +16,13 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.SubSubjectId).HasColumnName("SubSubjecId");
             builder.Property(t => t.GroupCFOId).HasColumnName("GroupCFOId");
 
-            builder.Property(t => t.SubSubject).IsRequired();
+            builder.HasOne(t => t.SubSubject).WithOne().IsRequired();
             builder.HasOne(t => t.SubSubject)
                 .WithMany(t => t.SubSubjectGroupCFOs)
                 .HasForeignKey(t => t.SubSubjectId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.GroupCFO).IsRequired();
+            builder.HasOne(t => t.GroupCFO).WithOne().IsRequired();
             builder.HasOne(t => t.GroupCFO)
                 .WithMany(t => t.SubSubjectGroupCFOs)
                 .HasForeignKey(t => t.GroupCFOId)

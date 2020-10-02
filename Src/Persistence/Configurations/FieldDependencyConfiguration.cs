@@ -19,13 +19,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DependencyFieldId).HasColumnName("DependencyFieldId");
 
             // Relationships
-            builder.Property(t => t.MainField).IsRequired();
+            builder.HasOne(t => t.MainField).WithOne().IsRequired();
             builder.HasOne(t => t.MainField)
                 .WithMany(t => t.MainFields)
                 .HasForeignKey(d => d.MainFieldId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.DependencyField).IsRequired();
+            builder.HasOne(t => t.DependencyField).WithOne().IsRequired();
             builder.HasOne(t => t.DependencyField)
                 .WithMany(t => t.DependencyFields)
                 .HasForeignKey(d => d.DependencyFieldId)

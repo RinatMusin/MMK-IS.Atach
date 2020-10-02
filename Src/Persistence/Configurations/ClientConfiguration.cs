@@ -20,7 +20,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 builder.Property(t => t.RefreshTokenLifeTime).HasColumnName("RefreshTokenLifeTime");
                 builder.Property(t => t.Secret).HasColumnName("Secret");
 
-                builder.Property(t => t.ApplicationType).IsRequired();
+                builder.HasOne(t => t.ApplicationType).WithOne().IsRequired();
                 builder.HasOne(t => t.ApplicationType)
                     .WithMany(t => t.Clients)
                     .HasForeignKey(d => d.ApplicationTypeId);

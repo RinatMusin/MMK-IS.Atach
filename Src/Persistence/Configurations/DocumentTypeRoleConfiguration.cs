@@ -18,22 +18,21 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ApplicationRoleReadPermissionId).HasColumnName("ApplicationRoleReadPermissionId");
             builder.Property(t => t.IsCreateDocument).HasColumnName("IsCreateDocument");
 
-            builder.Property(t => t.ApplicationRole).IsRequired();
-            builder.HasOne(t => t.ApplicationRole)
-                .WithMany(t => t.DocumentTypeRoles)
-                .HasForeignKey(t => t.ApplicationRoleId);
+            builder.Ignore(t => t.ApplicationRole);
+            //builder.HasOne(t => t.ApplicationRole).WithOne().IsRequired();
+            //builder.HasOne(t => t.ApplicationRole).WithMany(t => t.DocumentTypeRoles) .HasForeignKey(t => t.ApplicationRoleId);
 
-            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)
              .WithMany(t => t.DocumentTypeRoles)
              .HasForeignKey(t => t.DocumentTypeId);
 
-            builder.Property(t => t.ApplicationRoleEditPermission).IsRequired();
+            builder.HasOne(t => t.ApplicationRoleEditPermission).WithOne().IsRequired();
             builder.HasOne(t => t.ApplicationRoleEditPermission)
               .WithMany(t => t.DocumentTypeRoles)
               .HasForeignKey(t => t.ApplicationRoleEditPermissionId);
 
-            builder.Property(t => t.ApplicationRoleReadPermission).IsRequired();
+            builder.HasOne(t => t.ApplicationRoleReadPermission).WithOne().IsRequired();
             builder.HasOne(t => t.ApplicationRoleReadPermission)
               .WithMany(t => t.DocumentTypeRoles)
               .HasForeignKey(t => t.ApplicationRoleReadPermissionId);

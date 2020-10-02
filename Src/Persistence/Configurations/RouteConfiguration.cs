@@ -17,7 +17,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.Name).HasColumnName("RouteName");
 
-            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document).WithOne().IsRequired();
             builder.HasOne(t => t.Document)
                 .WithMany(t => t.Routes)
                 .HasForeignKey(t => t.DocumentId)

@@ -19,7 +19,7 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
             builder.Property(t => t.DisplayOrder).HasColumnName("Duration");
             builder.Property(t => t.ZGDId).HasColumnName("ZGDId");
 
-            builder.Property(t => t.Owner).IsRequired();
+            builder.HasOne(t => t.Owner).WithOne().IsRequired();
             builder.HasOne(t => t.Owner)
                 .WithMany(t => t.GroupCFOs)
                 .HasForeignKey(t => t.OwnerId)

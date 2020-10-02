@@ -19,7 +19,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.MarginTop).HasColumnName("MarginTop");
             builder.Property(t => t.IsDefault).HasColumnName("IsDefault");
 
-            builder.Property(t => t.StampPositionType).IsRequired();
+            builder.HasOne(t => t.StampPositionType).WithOne().IsRequired();
             builder.HasOne(t => t.StampPositionType)
                 .WithMany(t => t.StampPositions)
                 .HasForeignKey(t => t.StampPositionTypeId);

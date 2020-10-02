@@ -18,7 +18,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.PreviewTemplate).HasColumnName("PreviewTemplate");
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
 
-            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)
                 .WithMany(t => t.DocumentTemplates)
                 .HasForeignKey(t => t.DocumentTypeId)

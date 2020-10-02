@@ -17,13 +17,13 @@ namespace MMK_IS.Atach.Persistence.Configurations.Notification
             builder.Property(t => t.Template).HasColumnName("Template");
             builder.Property(t => t.SubjectTemplate).HasColumnName("SubjectTemplate");
 
-            builder.Property(t => t.Notification).IsRequired();
+            builder.HasOne(t => t.Notification).WithOne().IsRequired();
             builder.HasOne(t => t.Notification)
                 .WithMany(t => t.Templates)
                 .HasForeignKey(t => t.NotificationId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.NotifiticationType).IsRequired();
+            builder.HasOne(t => t.NotifiticationType).WithOne().IsRequired();
             builder.HasOne(t => t.NotifiticationType)
                 .WithMany(t => t.NotificationTemplates)
                 .HasForeignKey(t => t.NofiticationTypeId)

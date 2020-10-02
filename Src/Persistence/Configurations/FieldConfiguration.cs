@@ -23,13 +23,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DataUrl).HasColumnName("DataUrl").HasColumnType("varchar");
 
 
-            builder.Property(t => t.FieldTargetType).IsRequired();
+            builder.HasOne(t => t.FieldTargetType).WithOne().IsRequired();
             builder.HasOne(t => t.FieldTargetType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.TargetTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.FieldType).IsRequired();
+            builder.HasOne(t => t.FieldType).WithOne().IsRequired();
             builder.HasOne(t => t.FieldType)
                 .WithMany(t => t.Fields)
                 .HasForeignKey(t => t.FieldTypeId)

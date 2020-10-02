@@ -132,6 +132,7 @@ namespace MMK_IS.Atach.Domain.Entities
         /// </summary>
         public virtual ICollection<Chat> Chats { get; set; }
 
-        public object DocumnetTypeName { get; set; }
+        /*TODO ошибка  The property 'Document.DocumnetTypeName' could not be mapped, because it is of type 'object' which is not a supported primitive type or a valid entity type. Either explicitly map this property, or ignore it using the '[NotMapped]' attribute or by using 'EntityTypeBuilder.Ignore' in 'OnModelCreating'. 
+        public object DocumnetTypeName { get; set; }*/
     }
 }

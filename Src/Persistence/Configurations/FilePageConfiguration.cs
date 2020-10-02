@@ -21,7 +21,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CreateDate).HasColumnName("InsertDate");
 
             // Relationships
-            builder.Property(t => t.File).IsRequired();
+            builder.HasOne(t => t.File).WithOne().IsRequired();
             builder.HasOne(t => t.File)
                 .WithMany(t => t.FilePages)
                 .HasForeignKey(d => d.FileId)

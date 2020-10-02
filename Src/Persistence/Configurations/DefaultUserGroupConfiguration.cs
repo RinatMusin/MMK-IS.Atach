@@ -17,7 +17,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
 
-            builder.Property(t => t.Element).IsRequired();
+            builder.HasOne(t => t.Element).WithOne().IsRequired();
             builder.HasOne(t => t.Element)
                 .WithMany(t => t.DefaultUserSettings)
                 .HasForeignKey(d => d.ElementId)

@@ -20,7 +20,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
 
             // Relationships
-            builder.Property(t => t.DocumentType).IsRequired();
+            builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)
                .WithMany(t => t.RouteTemplates)
                .HasForeignKey(d => d.DocumentTypeId)

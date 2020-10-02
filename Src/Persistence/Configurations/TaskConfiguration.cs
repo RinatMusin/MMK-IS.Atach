@@ -30,7 +30,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.LastUpdate).HasColumnName("LastUpdate");
             builder.Property(t => t.DateOfExecution).HasColumnName("DateOfExecution");
 
-            builder.Property(t => t.Document).IsRequired();
+            builder.HasOne(t => t.Document).WithOne().IsRequired();
             builder.HasOne(t => t.Document)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.DocumentId)
@@ -41,25 +41,25 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(t => t.ParentTaskId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.TaskStatus).IsRequired();
+            builder.HasOne(t => t.TaskStatus).WithOne().IsRequired();
             builder.HasOne(t => t.TaskStatus)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskStatusId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.TaskType).IsRequired();
+            builder.HasOne(t => t.TaskType).WithOne().IsRequired();
             builder.HasOne(t => t.TaskType)
                 .WithMany(t => t.TaskEntities)
                 .HasForeignKey(t => t.TaskTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.FromUser).IsRequired();
+            builder.HasOne(t => t.FromUser).WithOne().IsRequired();
             builder.HasOne(t => t.FromUser)
                .WithMany(t => t.TasksFromUser)
                .HasForeignKey(t => t.FromUserId)
                .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.ToUser).IsRequired();
+            builder.HasOne(t => t.ToUser).WithOne().IsRequired();
             builder.HasOne(t => t.ToUser)
                .WithMany(t => t.TasksToUser)
                .HasForeignKey(t => t.ToUserId)
@@ -70,7 +70,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(t => t.ReplacementUserId)
                 .OnDelete(DeleteBehavior.Cascade);
             
-            builder.Property(t => t.Workplace).IsRequired();
+            builder.HasOne(t => t.Workplace).WithOne().IsRequired();
             builder.HasOne(t => t.Workplace)
                .WithMany(t => t.TaskEntities)
                .HasForeignKey(t => t.WorkplaceId)

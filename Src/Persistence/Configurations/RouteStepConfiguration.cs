@@ -38,13 +38,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.IsVisible).HasColumnName("IsVisible");
             builder.Property(t => t.WasRecalled).HasColumnName("WasRecalled");
 
-            builder.Property(t => t.RouteStepGroup).IsRequired();
+            builder.HasOne(t => t.RouteStepGroup).WithOne().IsRequired();
             builder.HasOne(t => t.RouteStepGroup)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteStepGroupId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.Route).IsRequired();
+            builder.HasOne(t => t.Route).WithOne().IsRequired();
             builder.HasOne(t => t.Route)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.RouteId)
@@ -55,7 +55,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.RouteStepType).IsRequired();
+            builder.HasOne(t => t.RouteStepType).WithOne().IsRequired();
             builder.HasOne(t => t.RouteStepType)
                 .WithMany(t => t.RouteSteps)
                 .HasForeignKey(t => t.StepTypeId)

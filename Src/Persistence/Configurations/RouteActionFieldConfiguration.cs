@@ -19,13 +19,13 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.Color).HasColumnName("Color");
 
 
-            builder.Property(t => t.RouteActionFieldType).IsRequired();
+            builder.HasOne(t => t.RouteActionFieldType).WithOne().IsRequired();
             builder.HasOne(t => t.RouteActionFieldType)
                 .WithMany(t => t.RouteActionFields)
                 .HasForeignKey(t => t.RouteActionFieldTypeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(t => t.RouteAction).IsRequired();
+            builder.HasOne(t => t.RouteAction).WithOne().IsRequired();
             builder.HasOne(t => t.RouteAction)
                 .WithMany(t => t.ActionFields)
                 .HasForeignKey(t => t.RouteActionId)

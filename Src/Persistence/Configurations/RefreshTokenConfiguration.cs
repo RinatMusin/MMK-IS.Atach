@@ -19,7 +19,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ProtectedTicket).HasColumnName("ProtectedTicket").IsRequired();
 
 
-            builder.Property(t => t.Client).IsRequired();
+            builder.HasOne(t => t.Client).WithOne().IsRequired();
             builder.HasOne(t => t.Client)
                 .WithMany(t => t.RefreshTokens)
                 .HasForeignKey(t => t.ClientId);
