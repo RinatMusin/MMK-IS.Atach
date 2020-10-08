@@ -13,9 +13,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.ToTable("ChatMessageAttachment");
 
             builder.Property(t => t.ChatMessageId).HasColumnName("ChatMessageId");
-            builder.Property(t => t.ChatMessageAttachmentType).HasColumnName("ChatMessageAttachmentType").HasColumnType("varchar");
-            builder.Property(t => t.ChatMessageAttachmentName).HasColumnName("ChatMessageAttachmentName").HasColumnType("varchar");
-            builder.Property(t => t.ChatMessageAttachmentStatus).HasColumnName("ChatMessageAttachmentStatus").HasColumnType("varchar");
+            builder.Property(t => t.ChatMessageAttachmentType).HasColumnName("ChatMessageAttachmentType").HasMaxLength(8000);
+            builder.Property(t => t.ChatMessageAttachmentName).HasColumnName("ChatMessageAttachmentName").HasMaxLength(8000);
+            builder.Property(t => t.ChatMessageAttachmentStatus).HasColumnName("ChatMessageAttachmentStatus").HasMaxLength(8000);
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
 

@@ -15,8 +15,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             // Table & Column Mappings
             builder.ToTable("File_Edit");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); 
-            builder.Property(t => t.Date).HasColumnName("Date").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000); 
+            builder.Property(t => t.Date).HasColumnName("Date").HasMaxLength(8000);
         }
 
     }

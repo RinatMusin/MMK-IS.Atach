@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("Route_Step_Type");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
 
             builder.Property(t => t.OnAcceptTaskStatusId).HasColumnName("OnAcceptTaskStatusId");
             builder.Property(t => t.OnRejectTaskStatusId).HasColumnName("OnRejectTaskStatusId");

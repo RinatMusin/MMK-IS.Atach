@@ -14,9 +14,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("ClientProfile");
 
-            builder.Property(t => t.FirstName).HasColumnName("FirstName").HasColumnType("varchar");
-            builder.Property(t => t.MiddleName).HasColumnName("MiddleName").HasColumnType("varchar");
-            builder.Property(t => t.LastName).HasColumnName("LastName").HasColumnType("varchar");
+            builder.Property(t => t.FirstName).HasColumnName("FirstName").HasMaxLength(8000);
+            builder.Property(t => t.MiddleName).HasColumnName("MiddleName").HasMaxLength(8000);
+            builder.Property(t => t.LastName).HasColumnName("LastName").HasMaxLength(8000);
             builder.Property(t => t.Avatar).HasColumnName("Avatar");
             builder.Property(t => t.Position).HasColumnName("Position");
             builder.Property(t => t.OfficePhone).HasColumnName("OfficePhone");

@@ -16,7 +16,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.IsReply).HasColumnName("IsReply");
             builder.Property(t => t.Template).HasColumnName("Template");
             builder.Property(t => t.PreviewTemplate).HasColumnName("PreviewTemplate");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
 
             builder.HasOne(t => t.DocumentType).WithOne().IsRequired();
             builder.HasOne(t => t.DocumentType)

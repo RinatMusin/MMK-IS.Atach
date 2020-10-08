@@ -13,8 +13,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasKey(t => t.ElementPropertyId);
 
             builder.Property(t => t.ElementId).HasColumnName("ElementId");
-            builder.Property(t => t.Key).HasColumnName("Key").HasColumnType("varchar");
-            builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
+            builder.Property(t => t.Key).HasColumnName("Key").HasMaxLength(8000);
+            builder.Property(t => t.Value).HasColumnName("Value").HasMaxLength(8000);
 
             builder.HasOne(t => t.Element).WithOne().IsRequired();
             builder.HasOne(t => t.Element)

@@ -16,9 +16,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.ToTable("Filed_Group");
 
             builder.Property(t => t.ParentFieldGroupId).HasColumnName("ParentFieldGroupId");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); ;
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
-            builder.Property(t => t.State).HasColumnName("State").HasColumnType("varchar"); ;
+            builder.Property(t => t.State).HasColumnName("State").HasMaxLength(8000);
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdate).HasColumnName("LastUpdate");
 

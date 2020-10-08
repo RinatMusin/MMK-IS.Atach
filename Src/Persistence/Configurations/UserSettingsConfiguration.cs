@@ -14,7 +14,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.ElementId).HasColumnName("ElementId");
             builder.Property(t => t.ClientProfileId).HasColumnName("ClientProfileId");
-            builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
+            builder.Property(t => t.Value).HasColumnName("Value").HasMaxLength(8000);
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
             builder.HasOne(t => t.Element).WithOne().IsRequired();

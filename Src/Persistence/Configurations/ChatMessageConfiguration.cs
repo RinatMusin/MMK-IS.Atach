@@ -14,7 +14,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.ChatId).HasColumnName("ChatId");
             builder.Property(t => t.ChatMemberId).HasColumnName("ChatMemberId");
-            builder.Property(t => t.ChatMessageText).HasColumnName("ChatMessageText").HasColumnType("varchar");
+            builder.Property(t => t.ChatMessageText).HasColumnName("ChatMessageText").HasMaxLength(8000);
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
             builder.Property(t => t.ChatMessageStatus).HasColumnName("ChatMessageStatus");

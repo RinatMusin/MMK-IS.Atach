@@ -16,10 +16,10 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.DocumentId).HasColumnName("DocumentId");
             builder.Property(t => t.ComplexChatId).HasColumnName("ComplexChatId");
             builder.Property(t => t.ChatCreatedProfileId).HasColumnName("ChatCreatedProfileId");
-            builder.Property(t => t.ChatName).HasColumnName("ChatName").HasColumnType("varchar");
+            builder.Property(t => t.ChatName).HasColumnName("ChatName").HasMaxLength(8000);
             builder.Property(t => t.IsPublicChat).HasColumnName("IsPublicChat");
-            builder.Property(t => t.ChatAvatarImageLink).HasColumnName("ChatAvatarImageLink").HasColumnType("varchar");
-            builder.Property(t => t.ChatDescription).HasColumnName("ChatDescription").HasColumnType("varchar");
+            builder.Property(t => t.ChatAvatarImageLink).HasColumnName("ChatAvatarImageLink").HasMaxLength(8000);
+            builder.Property(t => t.ChatDescription).HasColumnName("ChatDescription").HasMaxLength(8000);
             builder.Property(t => t.CreationDate).HasColumnName("CreationDate");
             builder.Property(t => t.LastUpdateDate).HasColumnName("LastUpdateDate");
 

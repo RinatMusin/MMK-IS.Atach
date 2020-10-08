@@ -12,8 +12,9 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("RefreshToken");
 
+            builder.Property(t => t.RefreshTokenId).HasMaxLength(128);
             builder.Property(t => t.Subject).HasColumnName("Subject").IsRequired();
-            builder.Property(t => t.ClientId).HasColumnName("ClientId").IsRequired();
+            builder.Property(t => t.ClientId).HasColumnName("ClientId").IsRequired().HasMaxLength(128);
             builder.Property(t => t.ExpiresUtc).HasColumnName("ExpiresUtc");
             builder.Property(t => t.IssuedUtc).HasColumnName("IssuedUtc");
             builder.Property(t => t.ProtectedTicket).HasColumnName("ProtectedTicket").IsRequired();

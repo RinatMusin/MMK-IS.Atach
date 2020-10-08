@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("File_Type");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
         }
     }
 }

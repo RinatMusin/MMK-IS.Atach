@@ -14,7 +14,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.Avatar).HasColumnName("Avatar");
             builder.Property(t => t.Duration).HasColumnName("Duration");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); ;
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
         }
     }
 }

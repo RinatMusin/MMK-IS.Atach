@@ -15,7 +15,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.CardFieldId).HasColumnName("CardFieldId");
             builder.Property(t => t.TemplateId).HasColumnName("TemplateId");
 
-            builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("varchar");
+            builder.Property(t => t.Value).HasColumnName("Value").HasColumnType("character varying");
 
 
             builder.HasOne(t => t.CardField).WithOne().IsRequired();

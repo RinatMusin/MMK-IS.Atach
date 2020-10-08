@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("Rating");
 
-            builder.Property(t => t.Name).HasColumnName("name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("name").HasMaxLength(1);
         }
     }
 }

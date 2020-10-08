@@ -13,7 +13,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasKey(t => t.TaskId);
 
             builder.Property(t => t.DocumentId).HasColumnName("DocumentId");
-            builder.Property(t => t.Resolution).HasColumnName("Resolution").HasColumnType("varchar");
+            builder.Property(t => t.Resolution).HasColumnName("Resolution").HasMaxLength(8000);
             builder.Property(t => t.ParentTaskId).HasColumnName("ParentTaskId");
             builder.Property(t => t.TaskStatusId).HasColumnName("TaskStatusId");
             builder.Property(t => t.TaskTypeId).HasColumnName("TaskTypeId");

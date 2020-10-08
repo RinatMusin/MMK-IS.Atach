@@ -13,7 +13,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.ToTable("Application_Role_Activity");
 
             builder.Property(t => t.ActivityId).HasColumnName("ActivityId");
-            builder.Property(t => t.RoleId).HasColumnName("RoleId");
+            builder.Property(t => t.RoleId).HasColumnName("RoleId").HasMaxLength(128);
 
             
            

@@ -12,7 +12,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
                 builder.HasKey(t => t.ClientId);
 
                 builder.ToTable("Client");
-
+                
+                builder.Property(t => t.ClientId).HasMaxLength(128);
                 builder.Property(t => t.Active).HasColumnName("Active");
                 builder.Property(t => t.AllowedOrigin).HasColumnName("AllowedOrigin");
                 builder.Property(t => t.ApplicationTypeId).HasColumnName("ApplicationTypeId");

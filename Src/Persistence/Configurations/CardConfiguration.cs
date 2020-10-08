@@ -17,8 +17,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.Property(t => t.ParentCardId).HasColumnName("ParentCardId");
             builder.Property(t => t.DocumentTypeId).HasColumnName("DocumentTypeId");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); ;
-            builder.Property(t => t.Description).HasColumnName("Description").HasColumnType("varchar"); ;
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000) ;
+            builder.Property(t => t.Description).HasColumnName("Description").HasMaxLength(8000) ;
             builder.Property(t => t.IsTemplate).HasColumnName("IsTemplate");
 
             // Relationships

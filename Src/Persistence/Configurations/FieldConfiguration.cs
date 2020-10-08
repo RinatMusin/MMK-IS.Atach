@@ -17,10 +17,10 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.FieldTypeId).HasColumnName("FieldTypeId");
             builder.Property(t => t.TargetTypeId).HasColumnName("TargetTypeId");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
-            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasColumnType("varchar");
-            builder.Property(t => t.DefaultValue).HasColumnName("DefaultValue").HasColumnType("varchar");
-            builder.Property(t => t.DataUrl).HasColumnName("DataUrl").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
+            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasMaxLength(8000);
+            builder.Property(t => t.DefaultValue).HasColumnName("DefaultValue").HasMaxLength(8000);
+            builder.Property(t => t.DataUrl).HasColumnName("DataUrl").HasMaxLength(8000);
 
 
             builder.HasOne(t => t.FieldTargetType).WithOne().IsRequired();

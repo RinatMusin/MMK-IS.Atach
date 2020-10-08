@@ -15,8 +15,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.UploadedUserId).HasColumnName("UploadedUserId");
             builder.Property(t => t.ParentFileId).HasColumnName("ParentFileId");
             builder.Property(t => t.FileTypeId).HasColumnName("FileTypeId");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar"); ;
-            builder.Property(t => t.Path).HasColumnName("Link").HasColumnType("varchar"); ;
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
+            builder.Property(t => t.Path).HasColumnName("Link").HasMaxLength(8000);
             builder.Property(t => t.IsDeleted).HasColumnName("IsDeleted");
             builder.Property(t => t.Version).HasColumnName("Version");
 

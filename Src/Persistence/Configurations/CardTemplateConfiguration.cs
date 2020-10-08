@@ -11,7 +11,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasKey(t => t.CardTemplateId);
             builder.ToTable("Card_Template");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("character varying");
         }
 
     }

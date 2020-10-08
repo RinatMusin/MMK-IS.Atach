@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 
             builder.ToTable("Dictionary_Organization");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
         }
     }
 }

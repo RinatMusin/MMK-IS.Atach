@@ -13,8 +13,8 @@ namespace MMK_IS.Atach.Persistence.Configurations.Dictionary
 
             builder.ToTable("Dictionary_Delivery_Method");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
-            builder.Property(t => t.DeliveryMethodType).HasColumnName("DeliveryMethodType").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
+            builder.Property(t => t.DeliveryMethodType).HasColumnName("DeliveryMethodType").HasMaxLength(8000);
 
         }
 

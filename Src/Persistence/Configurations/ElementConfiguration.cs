@@ -12,8 +12,8 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.HasKey(t => t.ElementId);
             
-            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasColumnType("varchar");
-            builder.Property(t => t.Type).HasColumnName("Type").HasColumnType("varchar");
+            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasMaxLength(8000);
+            builder.Property(t => t.Type).HasColumnName("Type").HasMaxLength(8000);
         }
     }
 }

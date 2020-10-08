@@ -13,7 +13,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasKey(t => t.StatusId);
 
             builder.Property(t => t.StatusId).HasColumnName("StatusId");
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
             builder.Property(t => t.IsTerminal).HasColumnName("IsTerminal");
         }
     }

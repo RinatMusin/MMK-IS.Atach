@@ -22,7 +22,8 @@ namespace MMK_IS.Atach.Persistence
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=192.168.137.52;User Id=touchdb;Password=qwe12345;Port=5432;Database=attach_core;");
+            
+            optionsBuilder.UseNpgsql("Server=192.168.137.124;User Id=touchdb;Password=qwe12345;Port=5432;Database=attach_core;");
         }
 
         //TODO   public DbSet<IdentityUserRole> IdentityUserRoles { get; set; }

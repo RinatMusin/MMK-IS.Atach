@@ -13,7 +13,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.HasKey(t => t.ComponentId);
 
             builder.Property(t => t.ViewPanelId).HasColumnName("ViewPanelId");
-            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasColumnType("varchar");
+            builder.Property(t => t.SystemName).HasColumnName("SystemName").HasMaxLength(8000);
             builder.Property(t => t.DisplayOrder).HasColumnName("DisplayOrder");
 
             builder.HasOne(t => t.ViewPanel).WithOne().IsRequired();

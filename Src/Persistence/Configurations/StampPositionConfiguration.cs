@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("Stamp_Position");
 
-            builder.Property(t => t.Position).HasColumnName("Position").HasColumnType("varchar");
+            builder.Property(t => t.Position).HasColumnName("Position").HasMaxLength(8000);
             builder.Property(t => t.MarginBottom).HasColumnName("MarginBottom");
             builder.Property(t => t.MarginLeft).HasColumnName("MarginLeft");
             builder.Property(t => t.MarginRight).HasColumnName("MarginRight");

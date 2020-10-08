@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("Route_Action");
 
-            builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("varchar");
+            builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
 
             builder.HasOne(t => t.RouteActionType).WithOne().IsRequired();
             builder.HasOne(t => t.RouteActionType)
