@@ -12,7 +12,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
 
             builder.ToTable("DocumentType_Role");
 
-            builder.Property(t => t.ApplicationRoleId).HasColumnName("ApplicationRoleId").HasMaxLength(128);
+            builder.Property(t => t.ApplicationRoleId).HasColumnName("ApplicationRoleId").HasMaxLength(128).IsRequired();
             builder.Property(t => t.DocumentTypeId).HasColumnName("DocumentTypeId");
             builder.Property(t => t.ApplicationRoleEditPermissionId).HasColumnName("ApplicationRoleEditPermissionId");
             builder.Property(t => t.ApplicationRoleReadPermissionId).HasColumnName("ApplicationRoleReadPermissionId");

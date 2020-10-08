@@ -10,7 +10,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
         {
             builder.HasKey(t => t.CardFieldTempateId);
 
-            builder.ToTable("Card_Field_Template");
+            builder.ToTable("CardFieldTempates");
 
             builder.Property(t => t.CardFieldId).HasColumnName("CardFieldId");
             builder.Property(t => t.TemplateId).HasColumnName("TemplateId");

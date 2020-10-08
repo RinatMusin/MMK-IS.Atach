@@ -10,7 +10,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
         {
             builder.HasKey(t => t.GroupAssignId);
 
-            builder.ToTable("Group_Assign");
+            builder.ToTable("Group_Assigns");
 
             builder.Property(t => t.Name).HasColumnName("Name").HasMaxLength(8000);
             builder.Property(t => t.ClientProfileId).HasColumnName("ClientProfileId");

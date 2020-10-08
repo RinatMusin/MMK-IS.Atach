@@ -24,7 +24,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
             builder.Property(t => t.ResponseStatusCode).HasColumnName("ResponseStatusCode").HasMaxLength(8000);
             builder.Property(t => t.ResponseTimestamp).HasColumnName("CreationDate");
             builder.Property(t => t.RequestTimestamp).HasColumnName("LastUpdateDate");
-            //property is 'Guid' which is not a nullable type         builder.Property(t => t.DocumentId).HasColumnName("DocumentId").IsRequired(false);
+            builder.Property(t => t.DocumentId).IsRequired();
             builder.Property(t => t.UniqueTransactionId).HasColumnName("UniqueTransactionId").IsRequired(false);
         }
 

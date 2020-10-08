@@ -9,7 +9,7 @@ namespace MMK_IS.Atach.Persistence.Configurations
         public void Configure(EntityTypeBuilder<CardTemplate> builder)
         {
             builder.HasKey(t => t.CardTemplateId);
-            builder.ToTable("Card_Template");
+            builder.ToTable("CardTemplates");
 
             builder.Property(t => t.Name).HasColumnName("Name").HasColumnType("character varying");
         }
